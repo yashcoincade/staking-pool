@@ -9,4 +9,8 @@ In order to build after a successful `clone`:
 * npm install
 * npm run compile
 
+## Testing
+
+* npm run test
+
 More information to come...
