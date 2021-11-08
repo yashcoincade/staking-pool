@@ -1,7 +1,7 @@
 {
-  "name": "hardhat-demo",
+  "name": "staking-v1",
   "version": "0.0.1",
-  "description": "demo project with hardhat and cucumber",
+  "description": "Staking pool v1",
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
