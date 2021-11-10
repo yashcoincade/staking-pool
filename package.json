@@ -1,14 +1,14 @@
 {
-  "name": "staking-v1",
+  "name": "@energyweb/staking-pool",
   "version": "0.0.1",
-  "description": "Staking pool v1",
+  "description": "Staking pool contracts",
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
     "compile": "hardhat compile",
     "cuke": "hardhat compile && tsc && cucumber-js"
   },
-  "author": "Micha Roon",
+  "author": "Piotr Kosiński, Kevin Nzeng, Krzysztof Szostak",
   "license": "MIT",
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.1",
