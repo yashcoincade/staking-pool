@@ -4,10 +4,9 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    //    "experimentalDecorators": true,
-    "outDir": "build"
+    "outDir": "dist",
+    "sourceMap": true
   },
-  "include": ["./scripts", "./test", "./features/step_definitions"],
+  "include": ["./ethers/**/*", "./src/**/*"],
   "files": ["./hardhat.config.ts"]
 }
