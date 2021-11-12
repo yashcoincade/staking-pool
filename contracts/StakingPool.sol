@@ -1,10 +1,13 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
+import "./libs/Roles.sol";
 import "./libs/ABDKMath64x64.sol";
+import "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
 
 contract StakingPool {
     using ABDKMath64x64 for int128;
+    using RolesLibrary for address;
 
     address public owner;
     address public claimManager;
@@ -17,6 +20,7 @@ contract StakingPool {
     uint256 public contributionLimit;
 
     uint256 public totalStaked;
+    bytes32[] patronRoles;
 
     uint256 private remainingRewards;
     uint256 private futureRewards;
@@ -45,6 +49,12 @@ contract StakingPool {
         _;
     }
 
+    modifier onlyPatrons(address _agent) {
+        // checking patron role with claimManager
+        require(_agent.hasRole(claimManager, patronRoles), "StakingPool: Not a patron");
+        _;
+    }
+    
     modifier belowContributionLimit() {
         require(
             stakes[msg.sender].deposit + msg.value <= contributionLimit,
@@ -71,7 +81,8 @@ contract StakingPool {
         uint256 _end,
         uint256 _ratio,
         uint256 _hardCap,
-        uint256 _contributionLimit
+        uint256 _contributionLimit,
+        bytes32[] memory _patronRoles
     ) external payable onlyOwner {
         require(
             _start >= block.timestamp,
@@ -87,6 +98,7 @@ contract StakingPool {
         ratio = _ratio;
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
+        patronRoles = _patronRoles;
 
         remainingRewards = msg.value;
 
@@ -100,7 +112,7 @@ contract StakingPool {
         emit OwnershipTransferred(oldOwner, _newOwner);
     }
 
-    function stake() public payable initialized belowContributionLimit {
+    function stake() onlyPatrons(msg.sender) public payable initialized belowContributionLimit {
         // check role with claimManager
         require(block.timestamp >= start, "Staking pool not yet started");
         require(block.timestamp <= end, "Staking pool already expired");

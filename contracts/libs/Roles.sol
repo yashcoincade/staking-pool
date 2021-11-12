@@ -1,22 +1,22 @@
 // SPDX Licence-Identifier: MIT
 pragma solidity 0.8.6;
 
-import "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
+import { ClaimManager as TrustedClaimManager } from "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
 
 
-library PatronsLibrary {
+library RolesLibrary {
 
-    function hasPatronRole(
+    function hasRole(
         address _userAddress,
         address _claimManagerAddress,
-        bytes32[] memory _patronRoles
+        bytes32[] memory _roles
     ) internal view returns (bool) {
-        if (_patronRoles.length == 0) {
+        if (_roles.length == 0) {
             return true;
         }
-        ClaimManager cm = ClaimManager(_claimManagerAddress);
-        for (uint i = 0; i < _patronRoles.length; i++) {
-            if (cm.hasRole(_userAddress, _patronRoles[i], 0)) {
+        TrustedClaimManager claimManager = TrustedClaimManager(_claimManagerAddress);
+        for (uint i = 0; i < _roles.length; i++) {
+            if (claimManager.hasRole(_userAddress, _roles[i], 0)) {
                 return true;
             }
         }
