@@ -1,0 +1,10 @@
+test
+.github
+.idea
+artifacts
+*.tgz
+cache
+bili.config.ts
+hardhat.config.ts
+cucumber.js
+tsconfig.json

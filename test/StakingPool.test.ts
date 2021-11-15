@@ -6,7 +6,7 @@ import {
   solidity,
 } from "ethereum-waffle";
 import StakePoolContract from "../artifacts/contracts/StakingPool.sol/StakingPool.json";
-import { StakingPool } from "../src/types";
+import { StakingPool } from "../ethers";
 import { Wallet, utils, BigNumber } from "ethers";
 
 use(solidity);

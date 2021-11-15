@@ -2,8 +2,14 @@
   "name": "@energyweb/staking-pool",
   "version": "0.0.1",
   "description": "Staking pool contracts",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "prebuild": "rimraf dist ethers && hardhat clean",
+    "build": "npm run compile && bili && copyfiles artifacts/contracts/**/*.json -u 1 dist",
     "test": "hardhat test",
     "compile": "hardhat compile",
     "cuke": "hardhat compile && tsc && cucumber-js"
@@ -14,18 +20,62 @@
     "@cucumber/cucumber": "^7.3.1",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.2.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^8.0.3",
+    "@semantic-release/release-notes-generator": "^10.0.2",
     "@typechain/ethers-v5": "^7.2.0",
     "@typechain/hardhat": "^2.3.1",
     "@types/chai": "^4.2.22",
     "@types/cucumber": "^7.0.0",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.7",
+    "bili": "^5.0.5",
     "chai": "^4.3.4",
+    "copyfiles": "^2.4.1",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.1",
     "hardhat": "^2.6.8",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
     "ts-node": "^10.4.0",
     "typechain": "^5.2.0",
     "typescript": "^4.4.4"
+  },
+  "release": {
+    "branches": [
+      {
+        "name": "master",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "minor"
+            },
+            {
+              "scope": "build",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   }
 }
