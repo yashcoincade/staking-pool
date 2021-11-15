@@ -33,7 +33,7 @@ describe("Staking Pool", function () {
     [owner, patron1, patron2]: Wallet[],
     provider: MockProvider
   ) {
-    const duration = 3600 * 24 * 7;
+    const duration = 3600 * 24 * 30;
     const end = start + duration;
 
     const stakingPool = (await deployContract(
@@ -70,17 +70,17 @@ describe("Staking Pool", function () {
         defaultFixture
       );
 
-      expect(
-        await asPatron1.stake({
-          value: oneEWT,
-        })
-      )
+      const tx = await asPatron1.stake({
+        value: oneEWT,
+      });
+
+      const receipt = await tx.wait();
+
+      const { timestamp } = await provider.getBlock(receipt.blockNumber);
+
+      await expect(tx)
         .to.emit(stakingPool, "StakeAdded")
-        .withArgs(
-          patron1.address,
-          oneEWT,
-          (await provider.getBlock("latest")).timestamp
-        );
+        .withArgs(patron1.address, oneEWT, timestamp);
 
       const [stake, compounded] = await asPatron1.total();
 
@@ -177,6 +177,29 @@ describe("Staking Pool", function () {
         })
       ).to.be.revertedWith("Staking pool already expired");
     });
+
+    it("should not compound stake after reaching expiry date", async function () {
+      const { asPatron1, duration, provider } = await loadFixture(
+        defaultFixture
+      );
+
+      await asPatron1.stake({
+        value: oneEWT,
+      });
+
+      await timeTravel(provider, duration + 1);
+
+      const [stake, compounded] = await asPatron1.total();
+
+      expect(compounded.gt(stake)).to.be.true;
+
+      await timeTravel(provider, duration + 1);
+
+      const [stakeAfterExpiry, compoundedAfterExpiry] = await asPatron1.total();
+
+      expect(stakeAfterExpiry).to.be.equal(stake);
+      expect(compoundedAfterExpiry).to.be.equal(compounded);
+    });
   });
 
   describe("Unstaking", async () => {
@@ -225,26 +248,22 @@ describe("Staking Pool", function () {
   });
 
   it(`maximum compound precision error should not result in error greater than 1 cent`, async function () {
-    const { asPatron1, provider } = await loadFixture(defaultFixture);
+    const { stakingPool, duration } = await loadFixture(defaultFixture);
 
     const oneCent = utils.parseUnits("0.001", "ether");
 
     const patronStake = 50000;
     const patronStakeWei = utils.parseUnits(patronStake.toString(), "ether");
 
-    await asPatron1.stake({
-      value: patronStakeWei,
-    });
+    const periods = duration / 3600;
 
-    const periods = 24 * 90; // 3 months
-    const hour = 3600;
+    const compounded = await stakingPool.compound(
+      patronStakeWei,
+      ratioInt,
+      periods
+    );
 
     const expectedCompounded = patronStake * Math.pow(1 + ratio, periods);
-
-    await timeTravel(provider, hour * periods);
-
-    const [, compounded] = await asPatron1.total();
-
     const expected = utils.parseUnits(expectedCompounded.toString(), 18);
     const diff = compounded.sub(expected).abs().toNumber();
 
