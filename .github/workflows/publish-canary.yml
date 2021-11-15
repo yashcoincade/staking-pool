@@ -34,7 +34,7 @@ jobs:
       - name: Set npm credentials
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> $HOME/.npmrc
       - name: Publish packages
-        run: npx semantic-release
+        run: npx semantic-release --branches master
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
