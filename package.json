@@ -4,6 +4,7 @@
   "description": "Staking pool contracts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "private": false,
   "files": [
     "dist"
   ],
@@ -47,8 +48,11 @@
   "release": {
     "branches": [
       {
+        "name": "release"
+      },
+      {
         "name": "master",
-        "prerelease": true
+        "prerelease": "rc"
       }
     ],
     "plugins": [
