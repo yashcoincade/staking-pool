@@ -10,6 +10,14 @@ require("solidity-coverage");
  */
 module.exports = {
   solidity: "0.8.6",
+  networks: {
+    hardhat: {
+      mining: {
+        auto: true,
+        interval: 5000,
+      },
+    },
+  },
   typechain: {
     outDir: "ethers",
     target: "ethers-v5",
