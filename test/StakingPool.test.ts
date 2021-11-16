@@ -1,10 +1,5 @@
 import { expect, use } from "chai";
-import {
-  deployContract,
-  loadFixture,
-  MockProvider,
-  solidity,
-} from "ethereum-waffle";
+import { deployContract, loadFixture, MockProvider, solidity } from "ethereum-waffle";
 import StakePoolContract from "../artifacts/contracts/StakingPool.sol/StakingPool.json";
 import { StakingPool } from "../ethers";
 import { Wallet, utils, BigNumber } from "ethers";
@@ -31,7 +26,7 @@ describe("Staking Pool", function () {
     hardCap: BigNumber,
     start: number,
     [owner, patron1, patron2]: Wallet[],
-    provider: MockProvider
+    provider: MockProvider,
   ) {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
@@ -40,7 +35,7 @@ describe("Staking Pool", function () {
       owner,
       StakePoolContract,
       [owner.address, start, end, ratioInt, hardCap, contributionLimit],
-      { value: rewards }
+      { value: rewards },
     )) as StakingPool;
 
     // travel to staking event start
@@ -65,10 +60,8 @@ describe("Staking Pool", function () {
   }
 
   describe("Staking", async () => {
-    it(`can stake funds`, async function () {
-      const { stakingPool, patron1, asPatron1, provider } = await loadFixture(
-        defaultFixture
-      );
+    it("can stake funds", async function () {
+      const { stakingPool, patron1, asPatron1, provider } = await loadFixture(defaultFixture);
 
       const tx = await asPatron1.stake({
         value: oneEWT,
@@ -78,9 +71,7 @@ describe("Staking Pool", function () {
 
       const { timestamp } = await provider.getBlock(receipt.blockNumber);
 
-      await expect(tx)
-        .to.emit(stakingPool, "StakeAdded")
-        .withArgs(patron1.address, oneEWT, timestamp);
+      await expect(tx).to.emit(stakingPool, "StakeAdded").withArgs(patron1.address, oneEWT, timestamp);
 
       const [stake, compounded] = await asPatron1.total();
 
@@ -88,7 +79,7 @@ describe("Staking Pool", function () {
       expect(stake).to.be.equal(oneEWT);
     });
 
-    it(`can stake funds multiple times`, async function () {
+    it("can stake funds multiple times", async function () {
       const { asPatron1 } = await loadFixture(defaultFixture);
 
       const receipt = await asPatron1.stake({
@@ -113,19 +104,17 @@ describe("Staking Pool", function () {
       await expect(
         await asPatron1.stake({
           value: oneEWT,
-        })
+        }),
       ).to.changeEtherBalance(stakingPool, oneEWT);
     });
 
     it("should revert when staking pool reached the hard cap", async function () {
       const hardCap = utils.parseUnits("2", "ether");
-      const { asPatron1, asPatron2 } = await loadFixture(
-        async (wallets: Wallet[], provider: MockProvider) => {
-          const { timestamp } = await provider.getBlock("latest");
-          const start = timestamp + 10;
-          return fixture(hardCap, start, wallets, provider);
-        }
-      );
+      const { asPatron1, asPatron2 } = await loadFixture(async (wallets: Wallet[], provider: MockProvider) => {
+        const { timestamp } = await provider.getBlock("latest");
+        const start = timestamp + 10;
+        return fixture(hardCap, start, wallets, provider);
+      });
 
       await asPatron1.stake({
         value: oneEWT.mul(2),
@@ -134,11 +123,11 @@ describe("Staking Pool", function () {
       await expect(
         asPatron2.stake({
           value: oneEWT,
-        })
+        }),
       ).to.be.revertedWith("Staking pool is full");
     });
 
-    it(`should revert when stake is greater than contribution limit`, async function () {
+    it("should revert when stake is greater than contribution limit", async function () {
       const { asPatron1 } = await loadFixture(defaultFixture);
 
       const patronStake = utils.parseUnits("50001", "ether");
@@ -146,44 +135,38 @@ describe("Staking Pool", function () {
       await expect(
         asPatron1.stake({
           value: patronStake,
-        })
+        }),
       ).to.be.revertedWith("Stake greater than contribution limit");
     });
 
     it("should revert when staking pool has not yet started", async function () {
-      const { asPatron1 } = await loadFixture(
-        async (wallets: Wallet[], provider: MockProvider) => {
-          const { timestamp } = await provider.getBlock("latest");
-          const start = timestamp + 100; //future
-          return fixture(hardCap, start, wallets, provider);
-        }
-      );
+      const { asPatron1 } = await loadFixture(async (wallets: Wallet[], provider: MockProvider) => {
+        const { timestamp } = await provider.getBlock("latest");
+        const start = timestamp + 100; //future
+        return fixture(hardCap, start, wallets, provider);
+      });
 
       await expect(
         asPatron1.stake({
           value: oneEWT,
-        })
+        }),
       ).to.be.revertedWith("Staking pool not yet started");
     });
 
     it("should revert when staking pool already expired", async function () {
-      const { asPatron1, duration, provider } = await loadFixture(
-        defaultFixture
-      );
+      const { asPatron1, duration, provider } = await loadFixture(defaultFixture);
 
       await timeTravel(provider, duration + 1);
 
       await expect(
         asPatron1.stake({
           value: oneEWT,
-        })
+        }),
       ).to.be.revertedWith("Staking pool already expired");
     });
 
     it("should not compound stake after reaching expiry date", async function () {
-      const { asPatron1, duration, provider } = await loadFixture(
-        defaultFixture
-      );
+      const { asPatron1, duration, provider } = await loadFixture(defaultFixture);
 
       await asPatron1.stake({
         value: oneEWT,
@@ -205,17 +188,14 @@ describe("Staking Pool", function () {
   });
 
   describe("Unstaking", async () => {
-    it(`can unstake funds`, async function () {
+    it("can unstake funds", async function () {
       const { patron1, asPatron1 } = await loadFixture(defaultFixture);
 
       await asPatron1.stake({
         value: oneEWT,
       });
 
-      await expect(await asPatron1.unstakeAll()).to.changeEtherBalance(
-        patron1,
-        oneEWT
-      );
+      await expect(await asPatron1.unstakeAll()).to.changeEtherBalance(patron1, oneEWT);
 
       const [stake, compounded] = await asPatron1.total();
 
@@ -230,10 +210,7 @@ describe("Staking Pool", function () {
         value: oneEWT,
       });
 
-      await expect(await asPatron1.unstakeAll()).to.changeEtherBalance(
-        stakingPool,
-        oneEWT.mul(-1)
-      );
+      await expect(await asPatron1.unstakeAll()).to.changeEtherBalance(stakingPool, oneEWT.mul(-1));
     });
 
     it("should revert when no funds staked before", async function () {
@@ -243,13 +220,11 @@ describe("Staking Pool", function () {
         value: oneEWT,
       });
 
-      await expect(asPatron2.unstakeAll()).to.be.revertedWith(
-        "No stake available"
-      );
+      await expect(asPatron2.unstakeAll()).to.be.revertedWith("No stake available");
     });
   });
 
-  it(`maximum compound precision error should not result in error greater than 1 cent`, async function () {
+  it("maximum compound precision error should not result in error greater than 1 cent", async function () {
     const { stakingPool, duration } = await loadFixture(defaultFixture);
 
     const oneCent = utils.parseUnits("0.001", "ether");
@@ -259,11 +234,7 @@ describe("Staking Pool", function () {
 
     const periods = duration / 3600;
 
-    const compounded = await stakingPool.compound(
-      patronStakeWei,
-      ratioInt,
-      periods
-    );
+    const compounded = await stakingPool.compound(patronStakeWei, ratioInt, periods);
 
     const expectedCompounded = patronStake * Math.pow(1 + ratio, periods);
     const expected = utils.parseUnits(expectedCompounded.toString(), 18);

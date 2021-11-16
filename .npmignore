@@ -8,3 +8,11 @@ bili.config.ts
 hardhat.config.ts
 cucumber.js
 tsconfig.json
+.solcover.js
+.prettierrc.js
+.prettierignore
+.solhintignore
+.solhint.json
+commitlint.config.js
+coverage.json
+coverage
