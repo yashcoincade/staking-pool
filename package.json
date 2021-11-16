@@ -4,6 +4,10 @@
   "description": "Staking pool contracts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "private": false,
   "files": [
     "dist"
