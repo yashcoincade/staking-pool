@@ -1,3 +1,10 @@
+# [1.0.0-rc.2](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ci:** make package public ([4a55f5d](https://github.com/energywebfoundation/staking-pool/commit/4a55f5d35cd77d6c2332b1b06e4c28f7b3272331))
+
 # 1.0.0-rc.1 (2021-11-16)
 
 
