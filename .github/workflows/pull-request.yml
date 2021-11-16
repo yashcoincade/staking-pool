@@ -30,6 +30,15 @@ jobs:
     - name: Install application
       run: npm ci
 
+    - name: Run Commitlint
+      run: npx commitlint --from HEAD~1 --verbose
+
+    - name: Run TS lint
+      run: npm run lint
+
+    - name: Run SOL lint
+      run: npm run hardhat:lint || true
+
     - name: Compile application
       run: npm run build
 
