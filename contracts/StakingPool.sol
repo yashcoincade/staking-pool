@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: MIT
 pragma solidity 0.8.6;
 
 import "./libs/ABDKMath64x64.sol";
@@ -32,15 +33,35 @@ contract StakingPool {
         uint256 _hardCap,
         uint256 _contributionLimit
     ) payable {
-        // check if stake pool time is at least 1 day
+        
+        init(
+            _claimManager,
+            _start,
+            _end,
+            _ratio,
+            _hardCap,
+            _contributionLimit
+        );
+        //check if appropraite role
+        // check if deposit is at least the max rewards
+        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
+    }
+
+    function init(
+        address _claimManager,
+        uint256 _start,
+        uint256 _end,
+        uint256 _ratio,
+        uint256 _hardCap,
+        uint256 _contributionLimit
+    ) public payable {
         require(
             _start >= block.timestamp,
             "Start date should be at least current block timestamp"
         );
+        // check if stake pool time is at least 1 day
         require(_end - _start >= 1 days, "Duration should be at least 1 day");
-        require(msg.value > 0);
-
-        //check if appropraite role
+        require(msg.value > 0, "Staking pool should be funded");
 
         claimManager = _claimManager;
         start = _start;
@@ -48,9 +69,6 @@ contract StakingPool {
         ratio = _ratio;
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
-
-        // check if deposit is at least the max rewards
-        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
     }
 
     function stake() public payable {
@@ -117,7 +135,7 @@ contract StakingPool {
 
     function compound(
         uint256 principal,
-        uint256 ratio,
+        uint256 _ratio,
         uint256 n
     ) public pure returns (uint256) {
         return
@@ -125,7 +143,7 @@ contract StakingPool {
                 ABDKMath64x64.pow(
                     ABDKMath64x64.add(
                         ABDKMath64x64.fromUInt(1),
-                        ABDKMath64x64.divu(ratio, 10**18)
+                        ABDKMath64x64.divu(_ratio, 10**18)
                     ),
                     n
                 ),
