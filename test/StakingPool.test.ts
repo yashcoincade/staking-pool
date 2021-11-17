@@ -88,7 +88,7 @@ describe("Staking Pool", function () {
   }
 
   it("Ownership can't be transferred to current owner", async function(){
-    const { stakingPool, owner, asOwner } = await loadFixture(defaultFixture);
+    const { owner, asOwner } = await loadFixture(defaultFixture);
     await expect(
       asOwner.changeOwner(owner.address)
       ).to.be.revertedWith("changeOwner: already owner");
