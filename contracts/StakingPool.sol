@@ -24,6 +24,7 @@ contract StakingPool {
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
     event StakingPoolInitialized(uint256 funded);
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     mapping(address => Stake) stakes;
     modifier onlyOwner(){
@@ -65,7 +66,10 @@ contract StakingPool {
     }
 
     function changeOwner(address _newOwner) external onlyOwner {
+        require(owner != _newOwner, "changeOwner: already owner");
+        address oldOwner = owner;
         owner = _newOwner;
+        emit OwnershipTransferred(oldOwner, _newOwner);
     }
 
     function stake() public payable {
