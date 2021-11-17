@@ -26,7 +26,7 @@ contract StakingPool {
     event StakingPoolInitialized(uint256 funded);
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
-    mapping(address => Stake) stakes;
+    mapping(address => Stake) public stakes;
     modifier onlyOwner(){
         require(msg.sender == owner, "OnlyOwner: Not authorized");
         _;
