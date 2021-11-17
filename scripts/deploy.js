@@ -11,7 +11,10 @@ async function main() {
   const contributionLimit = ethers.utils.parseUnits("5000", "ether");
 
   const StakingPool = await ethers.getContractFactory("StakingPool");
-  const stakingPool = await StakingPool.deploy(
+  const stakingPool = await StakingPool.deploy();
+
+  console.log("StakingPool deployed to:", stakingPool.address);
+  stakingPool.init(
     ethers.constants.AddressZero,
     start,
     end,
@@ -20,8 +23,6 @@ async function main() {
     contributionLimit,
     { value: contributionLimit }
   );
-
-  console.log("StakingPool deployed to:", stakingPool.address);
 }
 
 main()
