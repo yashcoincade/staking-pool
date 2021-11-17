@@ -1,5 +1,5 @@
 import { expect, use } from "chai";
-import { deployContract, loadFixture, MockProvider, solidity } from "ethereum-waffle";
+import { deployContract, loadFixture, MockProvider, solidity, createFixtureLoader } from "ethereum-waffle";
 import StakePoolContract from "../artifacts/contracts/StakingPool.sol/StakingPool.json";
 import { StakingPool } from "../ethers";
 import { Wallet, utils, BigNumber } from "ethers";
@@ -27,16 +27,35 @@ describe("Staking Pool", function () {
     start: number,
     [owner, patron1, patron2]: Wallet[],
     provider: MockProvider,
+    initialize: boolean = true,
   ) {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
 
     const stakingPool = (await deployContract(
       owner,
-      StakePoolContract,
-      [owner.address, start, end, ratioInt, hardCap, contributionLimit],
-      { value: rewards },
+      StakePoolContract
+      // [owner.address, start, end, ratioInt, hardCap, contributionLimit],
+      // { value: rewards },
     )) as StakingPool;
+
+    if (initialize){
+      const asOwner = stakingPool.connect(owner);
+      const tx = await asOwner.init(
+        owner.address, //ToDo adapt with claimManager address
+        start,
+        end,
+        ratioInt,
+        hardCap,
+        contributionLimit,
+        {
+        value: oneEWT,
+      });
+      const receipt = await tx.wait();
+      await expect(tx).to
+                      .emit(stakingPool, "StakingPoolInitialized")
+                            .withArgs(oneEWT);
+    }
 
     // travel to staking event start
     await timeTravel(provider, 10);
@@ -49,6 +68,9 @@ describe("Staking Pool", function () {
       asPatron2: stakingPool.connect(patron2),
       provider,
       duration,
+      start,
+      end,
+      hardCap,
     };
   }
 
@@ -58,6 +80,23 @@ describe("Staking Pool", function () {
 
     return fixture(hardCap, start, wallets, provider);
   }
+
+  async function failureInitFixture(wallets: Wallet[], provider: MockProvider) {
+    const { timestamp } = await provider.getBlock("latest");
+    const start = timestamp + 10;
+
+    return fixture(hardCap, start, wallets, provider, false);
+  }
+
+  it("Stake should revert if staking pool is not initialized", async function(){
+    const { asPatron1 } = await loadFixture(failureInitFixture);
+
+    await expect(
+      asPatron1.stake({
+        value: oneEWT,
+      }),
+    ).to.be.revertedWith("Staking Pool not initialized");
+  });
 
   describe("Staking", async () => {
     it("can stake funds", async function () {

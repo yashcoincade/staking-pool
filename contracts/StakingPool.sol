@@ -6,6 +6,7 @@ import "./libs/ABDKMath64x64.sol";
 contract StakingPool {
     using ABDKMath64x64 for int128;
 
+    address public owner;
     address public claimManager;
     uint256 public start;
     uint256 public end;
@@ -22,26 +23,16 @@ contract StakingPool {
 
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
+    event StakingPoolInitialized(uint256 funded);
 
     mapping(address => Stake) stakes;
+    modifier onlyOwner(){
+        require(msg.sender == owner, "OnlyOwner: Not authorized");
+        _;
+    }
 
-    constructor(
-        address _claimManager,
-        uint256 _start,
-        uint256 _end,
-        uint256 _ratio,
-        uint256 _hardCap,
-        uint256 _contributionLimit
-    ) payable {
-        
-        init(
-            _claimManager,
-            _start,
-            _end,
-            _ratio,
-            _hardCap,
-            _contributionLimit
-        );
+    constructor() {
+        owner = msg.sender;
         //check if appropraite role
         // check if deposit is at least the max rewards
         // require(calculateReward(_end - _start, _hardCap) <= msg.value);
@@ -54,7 +45,7 @@ contract StakingPool {
         uint256 _ratio,
         uint256 _hardCap,
         uint256 _contributionLimit
-    ) public payable {
+    ) external payable onlyOwner {
         require(
             _start >= block.timestamp,
             "Start date should be at least current block timestamp"
@@ -69,10 +60,17 @@ contract StakingPool {
         ratio = _ratio;
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
+        
+        emit StakingPoolInitialized(msg.value);
+    }
+
+    function changeOwner(address _newOwner) external onlyOwner {
+        owner = _newOwner;
     }
 
     function stake() public payable {
         // check role with claimManager
+        require(start != 0, "Staking Pool not initialized");
         require(block.timestamp >= start, "Staking pool not yet started");
         require(block.timestamp <= end, "Staking pool already expired");
 
@@ -105,7 +103,6 @@ contract StakingPool {
 
         totalStaked -= stakes[msg.sender].stake;
         delete stakes[msg.sender];
-
         payable(msg.sender).transfer(payout);
 
         emit StakeWithdrawn(msg.sender, payout);
