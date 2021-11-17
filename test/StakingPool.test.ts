@@ -1,5 +1,5 @@
 import { expect, use } from "chai";
-import { deployContract, loadFixture, MockProvider, solidity, createFixtureLoader } from "ethereum-waffle";
+import { deployContract, loadFixture, MockProvider, solidity } from "ethereum-waffle";
 import StakePoolContract from "../artifacts/contracts/StakingPool.sol/StakingPool.json";
 import { StakingPool } from "../ethers";
 import { Wallet, utils, BigNumber } from "ethers";
@@ -27,7 +27,7 @@ describe("Staking Pool", function () {
     start: number,
     [owner, patron1, patron2]: Wallet[],
     provider: MockProvider,
-    initialize: boolean = true,
+    initializePool: boolean = true,
   ) {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
@@ -35,11 +35,9 @@ describe("Staking Pool", function () {
     const stakingPool = (await deployContract(
       owner,
       StakePoolContract
-      // [owner.address, start, end, ratioInt, hardCap, contributionLimit],
-      // { value: rewards },
     )) as StakingPool;
 
-    if (initialize){
+    if (initializePool){
       const asOwner = stakingPool.connect(owner);
       const tx = await asOwner.init(
         owner.address, //ToDo adapt with claimManager address
@@ -51,7 +49,6 @@ describe("Staking Pool", function () {
         {
         value: oneEWT,
       });
-      const receipt = await tx.wait();
       await expect(tx).to
                       .emit(stakingPool, "StakingPoolInitialized")
                             .withArgs(oneEWT);
