@@ -39,7 +39,7 @@ const intializeContract = async (_deployedContract) => {
             contributionLimit,
             { value: contributionLimit }
         );
-        console.log("Staking Pool initialied \n");
+        console.log("Staking Pool initialized \n");
     } catch (error) {
         console.log("An error occurred during contract initialization : ", error);
     }
