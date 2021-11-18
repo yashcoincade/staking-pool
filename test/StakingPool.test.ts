@@ -27,16 +27,32 @@ describe("Staking Pool", function () {
     start: number,
     [owner, patron1, patron2]: Wallet[],
     provider: MockProvider,
+    initializePool: boolean = true,
   ) {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
 
     const stakingPool = (await deployContract(
       owner,
-      StakePoolContract,
-      [owner.address, start, end, ratioInt, hardCap, contributionLimit],
-      { value: rewards },
+      StakePoolContract
     )) as StakingPool;
+
+    if (initializePool){
+      const asOwner = stakingPool.connect(owner);
+      const tx = await asOwner.init(
+        owner.address, //ToDo adapt with claimManager address
+        start,
+        end,
+        ratioInt,
+        hardCap,
+        contributionLimit,
+        {
+        value: oneEWT,
+      });
+      await expect(tx).to
+                      .emit(stakingPool, "StakingPoolInitialized")
+                            .withArgs(oneEWT);
+    }
 
     // travel to staking event start
     await timeTravel(provider, 10);
@@ -45,10 +61,15 @@ describe("Staking Pool", function () {
       stakingPool,
       patron1,
       patron2,
+      owner,
       asPatron1: stakingPool.connect(patron1),
       asPatron2: stakingPool.connect(patron2),
+      asOwner: stakingPool.connect(owner),
       provider,
       duration,
+      start,
+      end,
+      hardCap,
     };
   }
 
@@ -59,7 +80,47 @@ describe("Staking Pool", function () {
     return fixture(hardCap, start, wallets, provider);
   }
 
+  async function failureInitFixture(wallets: Wallet[], provider: MockProvider) {
+    const { timestamp } = await provider.getBlock("latest");
+    const start = timestamp + 10;
+
+    return fixture(hardCap, start, wallets, provider, false);
+  }
+
+  it("Ownership can't be transferred to current owner", async function(){
+    const { owner, asOwner } = await loadFixture(defaultFixture);
+    await expect(
+      asOwner.changeOwner(owner.address)
+      ).to.be.revertedWith("changeOwner: already owner");
+  });
+
+
+  it("Ownership can't be transferred by non owner", async function(){
+    const { asPatron1, patron1 } = await loadFixture(defaultFixture);
+    await expect(
+      asPatron1.changeOwner(patron1.address)
+    ).to.be.revertedWith("OnlyOwner: Not authorized");
+  });
+
+  it("Ownership is correctly transferred", async function(){
+    const { patron1, asOwner, stakingPool } = await loadFixture(defaultFixture);
+
+    const tx = await asOwner.changeOwner(patron1.address);
+
+    await expect(tx).to.emit(stakingPool, "OwnershipTransferred");
+  });
+
   describe("Staking", async () => {
+    it("should revert if staking pool is not initialized", async function(){
+      const { asPatron1 } = await loadFixture(failureInitFixture);
+  
+      await expect(
+        asPatron1.stake({
+          value: oneEWT,
+        }),
+      ).to.be.revertedWith("Staking Pool not initialized");
+    });
+
     it("can stake funds", async function () {
       const { stakingPool, patron1, asPatron1, provider } = await loadFixture(defaultFixture);
 

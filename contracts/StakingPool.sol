@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: MIT
 pragma solidity 0.8.6;
 
 import "./libs/ABDKMath64x64.sol";
@@ -5,6 +6,7 @@ import "./libs/ABDKMath64x64.sol";
 contract StakingPool {
     using ABDKMath64x64 for int128;
 
+    address public owner;
     address public claimManager;
     uint256 public start;
     uint256 public end;
@@ -21,26 +23,37 @@ contract StakingPool {
 
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
+    event StakingPoolInitialized(uint256 funded);
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
-    mapping(address => Stake) stakes;
+    mapping(address => Stake) public stakes;
+    modifier onlyOwner(){
+        require(msg.sender == owner, "OnlyOwner: Not authorized");
+        _;
+    }
 
-    constructor(
+    constructor() {
+        owner = msg.sender;
+        //check if appropraite role
+        // check if deposit is at least the max rewards
+        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
+    }
+
+    function init(
         address _claimManager,
         uint256 _start,
         uint256 _end,
         uint256 _ratio,
         uint256 _hardCap,
         uint256 _contributionLimit
-    ) payable {
-        // check if stake pool time is at least 1 day
+    ) external payable onlyOwner {
         require(
             _start >= block.timestamp,
             "Start date should be at least current block timestamp"
         );
+        // check if stake pool time is at least 1 day
         require(_end - _start >= 1 days, "Duration should be at least 1 day");
-        require(msg.value > 0);
-
-        //check if appropraite role
+        require(msg.value > 0, "Staking pool should be funded");
 
         claimManager = _claimManager;
         start = _start;
@@ -48,13 +61,20 @@ contract StakingPool {
         ratio = _ratio;
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
+        
+        emit StakingPoolInitialized(msg.value);
+    }
 
-        // check if deposit is at least the max rewards
-        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
+    function changeOwner(address _newOwner) external onlyOwner {
+        require(owner != _newOwner, "changeOwner: already owner");
+        address oldOwner = owner;
+        owner = _newOwner;
+        emit OwnershipTransferred(oldOwner, _newOwner);
     }
 
     function stake() public payable {
         // check role with claimManager
+        require(start != 0, "Staking Pool not initialized");
         require(block.timestamp >= start, "Staking pool not yet started");
         require(block.timestamp <= end, "Staking pool already expired");
 
@@ -87,7 +107,6 @@ contract StakingPool {
 
         totalStaked -= stakes[msg.sender].stake;
         delete stakes[msg.sender];
-
         payable(msg.sender).transfer(payout);
 
         emit StakeWithdrawn(msg.sender, payout);
@@ -117,7 +136,7 @@ contract StakingPool {
 
     function compound(
         uint256 principal,
-        uint256 ratio,
+        uint256 _ratio,
         uint256 n
     ) public pure returns (uint256) {
         return
@@ -125,7 +144,7 @@ contract StakingPool {
                 ABDKMath64x64.pow(
                     ABDKMath64x64.add(
                         ABDKMath64x64.fromUInt(1),
-                        ABDKMath64x64.divu(ratio, 10**18)
+                        ABDKMath64x64.divu(_ratio, 10**18)
                     ),
                     n
                 ),
