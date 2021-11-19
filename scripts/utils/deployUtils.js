@@ -37,11 +37,11 @@ const intializeContract = async (_deployedContract) => {
             ratio,
             hardCap,
             contributionLimit,
-            { value: contributionLimit }
+            { value: ethers.utils.parseUnits("4.2", "ether") }
         );
         console.log("Staking Pool initialized \n");
     } catch (error) {
-        console.log("An error occurred during contract initialization : ", error);
+        console.log("\nAn error occurred during contract initialization :\n\t ==>", error);
     }
 }
 

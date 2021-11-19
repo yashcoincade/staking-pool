@@ -6,7 +6,7 @@ const {
 async function main() {
   const stakingPoolContract = await deployContract("StakingPool");
   if (stakingPoolContract) {
-    await intializeContract(stakingPoolContract);
+   await intializeContract(stakingPoolContract);
   }
 }
 
