@@ -1,3 +1,25 @@
+# [1.0.0-rc.3](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-11-19)
+
+
+### Bug Fixes
+
+* **hardhat-config:** getting default account's privKey ([6850369](https://github.com/energywebfoundation/staking-pool/commit/685036991cc2f3d9175143599769b6d79468b0dd))
+* **hardhat-config:** preventing null accounts ([a2376ae](https://github.com/energywebfoundation/staking-pool/commit/a2376ae0dbb72d24c7d3abb8c3445a62fa1dce39))
+* **hardhat-config:** preventing null privateKey ([cc555b0](https://github.com/energywebfoundation/staking-pool/commit/cc555b045bff89329cd01a8d6abc6a727ede520e))
+* **package-lock:** fixing ethereumjs-abi resolution ([6519541](https://github.com/energywebfoundation/staking-pool/commit/6519541c222c67c6839c22b62f9978e64a7fc316))
+* **package-lock:** fixing ethereumjs-abi resolution ([197a0a3](https://github.com/energywebfoundation/staking-pool/commit/197a0a3e2a5baa951c099822eb613b63d97efdd8))
+* **utils/initializeContrcat:** correcting typo ([b751706](https://github.com/energywebfoundation/staking-pool/commit/b7517066fd77c30e8defb923489acc9ee2175a59))
+
+
+### Features
+
+* **deploy script:** updating deployment flow ([f2491cb](https://github.com/energywebfoundation/staking-pool/commit/f2491cbf571ed1ccf170e2d85c80e7748b5358d9))
+* **deploy:** setting deployment on volta ([c2a70b8](https://github.com/energywebfoundation/staking-pool/commit/c2a70b8706aae987dbfb13d572a00d319983cbc3))
+* **stakingPool:** adding init funciton ([22991f9](https://github.com/energywebfoundation/staking-pool/commit/22991f9a565c86ee5e748190be4bc6f11d00024e))
+* **StakingPool:** adding initialization function & tests ([148a2fe](https://github.com/energywebfoundation/staking-pool/commit/148a2fe47feb7590b2cd1c6c7da21799daf26175))
+* **StakingPool:** improving and testing contract ownership ([55f3c87](https://github.com/energywebfoundation/staking-pool/commit/55f3c871ae17cb2bcbb8713a71c6bb5e4c0924af))
+* **StakingPool:** precising visibility on mapping ([b1795fc](https://github.com/energywebfoundation/staking-pool/commit/b1795fcdd3e3394ac05faf25b3217a98e936af0b))
+
 # [1.0.0-rc.2](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2021-11-16)
 
 
