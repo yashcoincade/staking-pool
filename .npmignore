@@ -16,3 +16,4 @@ tsconfig.json
 commitlint.config.js
 coverage.json
 coverage
+scripts
