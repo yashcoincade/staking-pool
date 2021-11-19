@@ -7,6 +7,8 @@ require("solidity-coverage");
 
 dotenv.config()
 
+const deployer_privateKey = process.env.DEPLOYER_PRIV_KEY || ""
+
 // noinspection JSValidateJSDoc
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -24,7 +26,7 @@ module.exports = {
     volta: {
       url: "https://volta-rpc.energyweb.org",
       chainId: 73799,
-      accounts: [process.env.DEPLOYER_PRIV_KEY],
+      accounts: [deployer_privateKey],
     },
   },
   typechain: {
