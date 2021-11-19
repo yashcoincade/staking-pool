@@ -8,7 +8,7 @@ import { defaultAccounts } from "@ethereum-waffle/provider";
 
 dotenv.config()
 
-const deployer_privateKey = process.env.DEPLOYER_PRIV_KEY || defaultAccounts[0]
+const deployer_privateKey = process.env.DEPLOYER_PRIV_KEY || defaultAccounts[0].secretKey
 
 // noinspection JSValidateJSDoc
 /**
