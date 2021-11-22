@@ -34,17 +34,9 @@ describe("Staking Pool", function () {
 
     if (initializePool) {
       const asOwner = stakingPool.connect(owner);
-      const tx = await asOwner.init(
-        owner.address,
-        start,
-        end,
-        ratioInt,
-        hardCap,
-        contributionLimit,
-        {
-          value: oneEWT,
-        },
-      );
+      const tx = await asOwner.init(owner.address, start, end, ratioInt, hardCap, contributionLimit, {
+        value: oneEWT,
+      });
       await expect(tx).to.emit(stakingPool, "StakingPoolInitialized");
     }
 
