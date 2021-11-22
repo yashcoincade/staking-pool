@@ -40,7 +40,7 @@ describe("Staking Pool", function () {
     if (initializePool){
       const asOwner = stakingPool.connect(owner);
       const tx = await asOwner.init(
-        owner.address, //ToDo adapt with claimManager address
+        owner.address,
         start,
         end,
         ratioInt,
@@ -49,9 +49,9 @@ describe("Staking Pool", function () {
         {
         value: oneEWT,
       });
+      await tx.wait()
       await expect(tx).to
                       .emit(stakingPool, "StakingPoolInitialized")
-                            .withArgs(oneEWT);
     }
 
     // travel to staking event start
