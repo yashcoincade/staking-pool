@@ -1,6 +1,6 @@
 {
   "name": "@energyweb/staking-pool",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "Staking pool contracts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -25,7 +25,7 @@
     "prepare": "is-ci || husky install",
     "lint": "npx eslint . --ext .ts --fix",
     "hardhat:coverage": "npx hardhat coverage",
-    "hardhat:lint": "npx solhint 'contracts/**/*.sol' --fix --max-warnings 100"
+    "hardhat:lint": "npx hardhat check"
   },
   "author": "Piotr Kosiński, Kevin Nzeng, Krzysztof Szostak",
   "license": "MIT",

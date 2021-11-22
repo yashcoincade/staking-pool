@@ -1,3 +1,10 @@
+# [1.0.0-rc.4](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-11-22)
+
+
+### Features
+
+* partial unstake function ([#17](https://github.com/energywebfoundation/staking-pool/issues/17)) ([a4db2a1](https://github.com/energywebfoundation/staking-pool/commit/a4db2a1aea8b617330e57cf9af69e96f5f3ef5af))
+
 # [1.0.0-rc.3](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-11-19)
 
 
