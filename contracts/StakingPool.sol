@@ -23,7 +23,7 @@ contract StakingPool {
 
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
-    event StakingPoolInitialized(uint256 funded, uint256 indexed timestamp);
+    event StakingPoolInitialized(uint256 funded, uint256 timestamp);
     event OwnershipTransferred(
         address indexed previousOwner,
         address indexed newOwner
@@ -50,9 +50,8 @@ contract StakingPool {
         uint256 _hardCap,
         uint256 _contributionLimit
     ) external payable onlyOwner {
-        uint256 timestamp = block.timestamp;
         require(
-            _start >= timestamp,
+            _start >= block.timestamp,
             "Start date should be at least current block timestamp"
         );
         // check if stake pool time is at least 1 day
@@ -66,7 +65,7 @@ contract StakingPool {
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
         
-        emit StakingPoolInitialized(msg.value, timestamp);
+        emit StakingPoolInitialized(msg.value, block.timestamp);
     }
 
     function changeOwner(address _newOwner) external onlyOwner {
