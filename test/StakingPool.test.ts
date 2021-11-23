@@ -51,7 +51,10 @@ describe("Staking Pool", function () {
           value: rewards,
         },
       );
-      await expect(tx).to.emit(stakingPool, "StakingPoolInitialized");
+      const { blockNumber } = await tx.wait();
+      const { timestamp } = await provider.getBlock(blockNumber);
+
+      await expect(tx).to.emit(stakingPool, "StakingPoolInitialized").withArgs(oneEWT, timestamp);
     }
 
     // travel to staking event start
