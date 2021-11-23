@@ -33,7 +33,6 @@ contract StakingPool {
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
     event StakingPoolInitialized(uint256 funded, uint256 timestamp);
-    // event StakingPoolInitialized(uint256 funded);
     event OwnershipTransferred(
         address indexed previousOwner,
         address indexed newOwner
