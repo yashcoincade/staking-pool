@@ -1,3 +1,10 @@
+# [1.0.0-rc.5](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-11-24)
+
+
+### Features
+
+* sweep function ([#20](https://github.com/energywebfoundation/staking-pool/issues/20)) ([eeefbaf](https://github.com/energywebfoundation/staking-pool/commit/eeefbaf4063f3b0868c4ad0d45933e6cb36315c5))
+
 # [1.0.0-rc.4](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-11-22)
 
 
