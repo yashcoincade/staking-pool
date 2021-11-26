@@ -13,8 +13,10 @@ const deployContract = async (contractName) => {
 
     const Contract = await ethers.getContractFactory(contractName);
     try {
-        const ownerRole = parseRole("owner.roles");
-        const deployedContract = await Contract.deploy(ownerRole);
+        const ownerRole = parseRole("owner.roles.stakingpool");
+        const VOLTA_CLAIM_MANAGER_ADDRESS = "0xC3dD7ED75779b33F5Cfb709E0aB02b71fbFA3210";
+
+        const deployedContract = await Contract.deploy(ownerRole, VOLTA_CLAIM_MANAGER_ADDRESS);
         displayContractInfos(contractName, deployedContract);
         console.log(`${emoji.emojify(":large_green_circle:")} ${contractName} deployed`);
 
@@ -36,19 +38,18 @@ const intializeContract = async (_deployedContract) => {
     const patronRoles = [
         parseRole('email.iam.ew'),
     ]
-    const claimManagerAddress = ethers.constants.AddressZero;
     try {
-       await _deployedContract.init(
-            claimManagerAddress,
+       const tx = await _deployedContract.init( //require owner to be enrolled in claimManager
             start,
             end,
             ratio,
             hardCap,
             contributionLimit,
             patronRoles,
-            { value:  ethers.utils.parseUnits("5", "ether")}
+            { value:  ethers.utils.parseUnits("1", "ether")}
         );
         console.log(`${emoji.emojify(":large_green_circle:")} Staking Pool initialized \n`);
+        console.log("TRansaction >> ", tx)
     } catch (error) {
         console.log(`\n${emoji.emojify(":red_circle:")} An error occurred during contract initialization :\n\t ==> ${error}`);
     }

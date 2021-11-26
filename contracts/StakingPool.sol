@@ -20,7 +20,8 @@ contract StakingPool {
     uint256 public contributionLimit;
 
     uint256 public totalStaked;
-    bytes32[] patronRoles;
+    bytes32[] private patronRoles;
+    bytes32 private ownerRole;
 
     uint256 private remainingRewards;
     uint256 private futureRewards;
@@ -36,7 +37,7 @@ contract StakingPool {
 
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
-    event StakingPoolInitialized(uint256 funded);
+    event StakingPoolInitialized(uint256 funded, uint256 timestamp);
     event OwnershipTransferred(
         address indexed previousOwner,
         address indexed newOwner
@@ -45,7 +46,8 @@ contract StakingPool {
     mapping(address => Stake) public stakes;
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "OnlyOwner: Not authorized");
+        // restrict to accounts enrolled as owner at energyweb 
+        require(msg.sender.isOwner(claimManager, ownerRole), "OnlyOwner: Not an owner");
         _;
     }
 
@@ -68,15 +70,14 @@ contract StakingPool {
         _;
     }
 
-    constructor() {
+        
+    constructor(bytes32 _ownerRole, address _claimManager) {
         owner = msg.sender;
-        //check if appropraite role
-        // check if deposit is at least the max rewards
-        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
+        ownerRole = _ownerRole;
+        claimManager = _claimManager;
     }
 
     function init(
-        address _claimManager,
         uint256 _start,
         uint256 _end,
         uint256 _ratio,
@@ -92,7 +93,6 @@ contract StakingPool {
         require(_end - _start >= 1 days, "Duration should be at least 1 day");
         require(msg.value > 0, "Staking pool should be funded");
 
-        claimManager = _claimManager;
         start = _start;
         end = _end;
         ratio = _ratio;
@@ -102,7 +102,7 @@ contract StakingPool {
 
         remainingRewards = msg.value;
 
-        emit StakingPoolInitialized(msg.value);
+        emit StakingPoolInitialized(msg.value, block.timestamp);
     }
 
     function changeOwner(address _newOwner) external onlyOwner {
