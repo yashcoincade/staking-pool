@@ -15,7 +15,7 @@ const verifyContract = async (_verifyParameters) => {
 }
 
 const getSourceCode = () => {
-    const sourceCode = readFileSync(flattenedContract, { encoding: 'utf-8'});
+    const sourceCode = readFileSync(flattenedContract);
     return sourceCode;
 }
 
