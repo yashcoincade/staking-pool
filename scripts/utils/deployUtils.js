@@ -46,7 +46,7 @@ const intializeContract = async (_deployedContract) => {
             hardCap,
             contributionLimit,
             patronRoles,
-            { value:  ethers.utils.parseUnits("1", "ether")}
+            { value:  ethers.utils.parseUnits("5", "ether")}
         );
         console.log(`${emoji.emojify(":large_green_circle:")} Staking Pool initialized \n`);
         console.log("TRansaction >> ", tx)
