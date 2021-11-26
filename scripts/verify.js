@@ -2,7 +2,7 @@ const path = require('path');
 const axios = require("axios");
 const { readFileSync } = require('fs');
 
-const flattenedContract = path.join(__dirname, '/utils/verifyUtils');
+const flattenedContract = path.join(__dirname, '/utils/flattened_contracts');
 
 const verifyContract = async (_verifyParameters) => {
     const baseUrlApi = "https://volta-explorer.energyweb.org/api/";
@@ -22,7 +22,7 @@ const getSourceCode = () => {
 const verifyParameters = {
     module: "contract",
     action: "verify",
-    addressHash: "0xAB3929D0212d7C4CD8269C658C334AC888A0130F",
+    addressHash: "0x550639901Ddd5C1610CF31e353F9Df19c261C672",
     name: "StakingPool",
     compilerVersion: "0.8.6+commit.11564f7e",
     optimization: false,
