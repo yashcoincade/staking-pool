@@ -1,3 +1,10 @@
+# [1.0.0-rc.7](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2021-11-26)
+
+
+### Features
+
+* add editorconfig ([558c5d7](https://github.com/energywebfoundation/staking-pool/commit/558c5d7a7f280cd70abd761c3845d3a6b812a9b8))
+
 # [1.0.0-rc.6](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-11-26)
 
 
