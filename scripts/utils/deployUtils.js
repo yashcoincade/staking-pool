@@ -7,13 +7,13 @@ const displayContractInfos = async (_contractName, _contract) => {
     console.log(`\tAddress: ${_contract.address}\n`);
 }
 
-const parseRole = (roleName) => ethers.utils.formatBytes32String(roleName); 
+const parseRole = (roleName) => ethers.utils.namehash(roleName); 
 
 const deployContract = async (contractName) => {
 
     const Contract = await ethers.getContractFactory(contractName);
     try {
-        const ownerRole = parseRole("owner.roles.stakingpool");
+        const ownerRole = parseRole("owner.roles.stakingpool.apps.energyweb.iam.ewc");
         const VOLTA_CLAIM_MANAGER_ADDRESS = "0xC3dD7ED75779b33F5Cfb709E0aB02b71fbFA3210";
 
         const deployedContract = await Contract.deploy(ownerRole, VOLTA_CLAIM_MANAGER_ADDRESS);
@@ -36,7 +36,7 @@ const intializeContract = async (_deployedContract) => {
     const hardCap = ethers.utils.parseUnits("500", "ether");
     const contributionLimit = ethers.utils.parseUnits("5", "ether");
     const patronRoles = [
-        parseRole('email.iam.ew'),
+        parseRole("email.roles.verification.apps.energyweb.iam.ewc"),
     ]
     try {
        const tx = await _deployedContract.init( //require owner to be enrolled in claimManager
