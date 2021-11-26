@@ -1,3 +1,10 @@
+# [1.0.0-rc.9](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2021-11-26)
+
+
+### Bug Fixes
+
+* update roleName hashing ([aacae76](https://github.com/energywebfoundation/staking-pool/commit/aacae763f74132589fb26290457c5033c06ff853))
+
 # [1.0.0-rc.8](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-11-26)
 
 
