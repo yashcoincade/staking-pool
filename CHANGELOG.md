@@ -1,3 +1,20 @@
+# [1.0.0-rc.6](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-11-26)
+
+
+### Bug Fixes
+
+* **ensDomais:** patching isAuthorized function in ens-contracts/PublicResolvers.sol ([db61dac](https://github.com/energywebfoundation/staking-pool/commit/db61daca8c8e58c28e0dab3cdbd2369385c9e6dc))
+
+
+### Features
+
+* adding a dateHandler to set dates parameters ([e0dafe9](https://github.com/energywebfoundation/staking-pool/commit/e0dafe983274fe267322496edee8a2c6ee06ba9f))
+* adding a function to check owner enrolement on claimManager ([010a1d8](https://github.com/energywebfoundation/staking-pool/commit/010a1d89d0be1127eba58556d27eaa393a15e8af))
+* **libs:** adding Patrons library ([fedf6a3](https://github.com/energywebfoundation/staking-pool/commit/fedf6a3a88f369c8a11cc90fc06b29a9346eec58))
+* refactoring roles checking against ClaimManager ([10a3908](https://github.com/energywebfoundation/staking-pool/commit/10a39088c68d50c54665f7c7aa51116229e3bc64))
+* **stakingPool:** checking patron role against claimManager ([9a3ee6d](https://github.com/energywebfoundation/staking-pool/commit/9a3ee6dceb61cbb611f7aad42af39083fb45f86b))
+* update deployment script to handle patonRoles and ownerRole ([9e32354](https://github.com/energywebfoundation/staking-pool/commit/9e323543c13584594f6ee708adb4fd0d8287eb50))
+
 # [1.0.0-rc.5](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-11-24)
 
 

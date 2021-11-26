@@ -1,6 +1,6 @@
 {
   "name": "@energyweb/staking-pool",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.6",
   "description": "Staking pool contracts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
