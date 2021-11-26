@@ -1,3 +1,48 @@
+# [1.0.0-rc.9](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2021-11-26)
+
+
+### Bug Fixes
+
+* update roleName hashing ([aacae76](https://github.com/energywebfoundation/staking-pool/commit/aacae763f74132589fb26290457c5033c06ff853))
+
+# [1.0.0-rc.8](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-11-26)
+
+
+### Bug Fixes
+
+* use namehash for roles ([#23](https://github.com/energywebfoundation/staking-pool/issues/23)) ([9f1b55c](https://github.com/energywebfoundation/staking-pool/commit/9f1b55cc116d834fb6cc33ac89c6129e47ec8253))
+
+# [1.0.0-rc.7](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2021-11-26)
+
+
+### Features
+
+* add editorconfig ([558c5d7](https://github.com/energywebfoundation/staking-pool/commit/558c5d7a7f280cd70abd761c3845d3a6b812a9b8))
+
+# [1.0.0-rc.6](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-11-26)
+
+
+### Bug Fixes
+
+* **ensDomais:** patching isAuthorized function in ens-contracts/PublicResolvers.sol ([db61dac](https://github.com/energywebfoundation/staking-pool/commit/db61daca8c8e58c28e0dab3cdbd2369385c9e6dc))
+
+
+### Features
+
+* adding a dateHandler to set dates parameters ([e0dafe9](https://github.com/energywebfoundation/staking-pool/commit/e0dafe983274fe267322496edee8a2c6ee06ba9f))
+* adding a function to check owner enrolement on claimManager ([010a1d8](https://github.com/energywebfoundation/staking-pool/commit/010a1d89d0be1127eba58556d27eaa393a15e8af))
+* **libs:** adding Patrons library ([fedf6a3](https://github.com/energywebfoundation/staking-pool/commit/fedf6a3a88f369c8a11cc90fc06b29a9346eec58))
+* refactoring roles checking against ClaimManager ([10a3908](https://github.com/energywebfoundation/staking-pool/commit/10a39088c68d50c54665f7c7aa51116229e3bc64))
+* **stakingPool:** checking patron role against claimManager ([9a3ee6d](https://github.com/energywebfoundation/staking-pool/commit/9a3ee6dceb61cbb611f7aad42af39083fb45f86b))
+* update deployment script to handle patonRoles and ownerRole ([9e32354](https://github.com/energywebfoundation/staking-pool/commit/9e323543c13584594f6ee708adb4fd0d8287eb50))
+
+# [1.0.0-rc.5](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-11-24)
+
+
+### Features
+
+* sweep function ([#20](https://github.com/energywebfoundation/staking-pool/issues/20)) ([eeefbaf](https://github.com/energywebfoundation/staking-pool/commit/eeefbaf4063f3b0868c4ad0d45933e6cb36315c5))
+
 # [1.0.0-rc.4](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-11-22)
 
 

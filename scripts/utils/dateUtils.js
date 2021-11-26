@@ -28,7 +28,8 @@ class DateHandler {
             case 'milliseconds':
                 this.dateTimestamp = Date.parse(date.addMilliseconds(new Date(Date.now()), amount));
                 return dateTimestamp / 1000;
-            return new Error(`Addition is not possible on ${type}`);
+            default:
+                return new Error(`Addition is not possible on ${type}`);
         }
     }
 

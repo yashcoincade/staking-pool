@@ -1,6 +1,6 @@
 {
   "name": "@energyweb/staking-pool",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0-rc.9",
   "description": "Staking pool contracts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -22,7 +22,7 @@
     "deploy:dev": "concurrently \"hardhat node\" \"hardhat run scripts/deploy.js\"",
     "deploy:volta": "hardhat run scripts/deploy.js --network volta",
     "verify": "npm run flatten && hardhat run scripts/verify.js",
-    "prepare": "is-ci || husky install",
+    "prepare": "git apply --ignore-whitespace patches/@ensdomains+ens-contracts+0.0.4.patch && is-ci || husky install",
     "lint": "npx eslint . --ext .ts --fix",
     "hardhat:coverage": "npx hardhat coverage",
     "hardhat:lint": "npx hardhat check"
@@ -33,6 +33,8 @@
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@cucumber/cucumber": "^7.3.1",
+    "@energyweb/iam-contracts": "^3.3.1",
+    "@ew-did-registry/proxyidentity": "^0.6.2",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-solhint": "^2.0.0",
     "@nomiclabs/hardhat-waffle": "^2.0.1",

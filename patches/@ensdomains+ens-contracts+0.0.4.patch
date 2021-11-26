@@ -1,0 +1,902 @@
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSClaimChecker.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSClaimChecker.sol
+index ed5db5a..0f75008 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSClaimChecker.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSClaimChecker.sol
+@@ -1,3 +1,4 @@
++ //SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "../dnssec-oracle/DNSSEC.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSRegistrar.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSRegistrar.sol
+index 0b0740a..a2d0e78 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSRegistrar.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/DNSRegistrar.sol
+@@ -1,3 +1,4 @@
++ //SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/PublicSuffixList.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/PublicSuffixList.sol
+index ce5cca9..05c138b 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/PublicSuffixList.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/PublicSuffixList.sol
+@@ -1,3 +1,4 @@
++ //SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ interface PublicSuffixList {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/SimplePublicSuffixList.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/SimplePublicSuffixList.sol
+index 57905fd..c390ac7 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/SimplePublicSuffixList.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/SimplePublicSuffixList.sol
+@@ -1,3 +1,4 @@
++ //SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/TLDPublicSuffixList.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/TLDPublicSuffixList.sol
+index 2fdc8ca..297ce3e 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/TLDPublicSuffixList.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/TLDPublicSuffixList.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "../dnssec-oracle/BytesUtils.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/mocks/DummyDnsRegistrarDNSSEC.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/mocks/DummyDnsRegistrarDNSSEC.sol
+index 4e5c817..6cf66e0 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/mocks/DummyDnsRegistrarDNSSEC.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnsregistrar/mocks/DummyDnsRegistrarDNSSEC.sol
+@@ -1,3 +1,4 @@
++ //SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ contract DummyDNSSEC {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/BytesUtils.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/BytesUtils.sol
+index ac07a20..79c5708 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/BytesUtils.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/BytesUtils.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ library BytesUtils {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSEC.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSEC.sol
+index c70e361..6ccaef8 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSEC.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSEC.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSECImpl.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSECImpl.sol
+index b701fab..b275769 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSECImpl.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/DNSSECImpl.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Migrations.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Migrations.sol
+index 3375753..b8fdb5d 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Migrations.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Migrations.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ contract Migrations {
+@@ -9,7 +10,7 @@ contract Migrations {
+             _;
+     }
+ 
+-    constructor() public {
++    constructor() {
+         owner = msg.sender;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Owned.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Owned.sol
+index 974819e..deec6b6 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Owned.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/Owned.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ /**
+@@ -11,7 +12,7 @@ contract Owned {
+         _;
+     }
+ 
+-    constructor() public {
++    constructor() {
+         owner = msg.sender;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/RRUtils.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/RRUtils.sol
+index 07e198d..576a9c6 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/RRUtils.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/RRUtils.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./BytesUtils.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/SHA1.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/SHA1.sol
+index 63829c6..432c49b 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/SHA1.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/SHA1.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ library SHA1 {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/Algorithm.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/Algorithm.sol
+index 0049677..6a6736a 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/Algorithm.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/Algorithm.sol
+@@ -1,3 +1,5 @@
++// SPDX-License-Identifier: MIT"
++
+ pragma solidity ^0.8.4;
+ 
+ /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/DummyAlgorithm.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/DummyAlgorithm.sol
+index 65c3d0b..db91b16 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/DummyAlgorithm.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/DummyAlgorithm.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Algorithm.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/EllipticCurve.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/EllipticCurve.sol
+index e8d1b33..9b93001 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/EllipticCurve.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/EllipticCurve.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/ModexpPrecompile.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/ModexpPrecompile.sol
+index 2d1c657..6e3634a 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/ModexpPrecompile.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/ModexpPrecompile.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "@ensdomains/buffer/contracts/Buffer.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/P256SHA256Algorithm.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/P256SHA256Algorithm.sol
+index 15bfd09..8d1b1d3 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/P256SHA256Algorithm.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/P256SHA256Algorithm.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Algorithm.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA1Algorithm.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA1Algorithm.sol
+index 95e1b3b..f8ca065 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA1Algorithm.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA1Algorithm.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Algorithm.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA256Algorithm.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA256Algorithm.sol
+index b31edf4..13c1fb2 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA256Algorithm.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSASHA256Algorithm.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Algorithm.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSAVerify.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSAVerify.sol
+index 390e2a5..76294ce 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSAVerify.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/algorithms/RSAVerify.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "../BytesUtils.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/Digest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/Digest.sol
+index 950472b..8f5efb7 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/Digest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/Digest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/DummyDigest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/DummyDigest.sol
+index 00fd3d7..12fedef 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/DummyDigest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/DummyDigest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Digest.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA1Digest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA1Digest.sol
+index 483c3c2..05b5a78 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA1Digest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA1Digest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Digest.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA256Digest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA256Digest.sol
+index f23bb92..e49e63c 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA256Digest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/digests/SHA256Digest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Digest.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/NSEC3Digest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/NSEC3Digest.sol
+index 9713eae..8e2c816 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/NSEC3Digest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/NSEC3Digest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/SHA1NSEC3Digest.sol b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/SHA1NSEC3Digest.sol
+index 77e4f6c..245f72e 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/SHA1NSEC3Digest.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/dnssec-oracle/nsec3digests/SHA1NSEC3Digest.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./NSEC3Digest.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrar.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrar.sol
+index 63db663..e9f0eb9 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrar.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrar.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "../registry/ENS.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrarImplementation.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrarImplementation.sol
+index cd98353..4777ff8 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrarImplementation.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BaseRegistrarImplementation.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "../registry/ENS.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BulkRenewal.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BulkRenewal.sol
+index d669435..fd09db8 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BulkRenewal.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/BulkRenewal.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+@@ -16,7 +17,7 @@ contract BulkRenewal {
+ 
+     ENS public ens;
+ 
+-    constructor(ENS _ens) public {
++    constructor(ENS _ens) {
+         ens = _ens;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/DummyOracle.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/DummyOracle.sol
+index 53c78ce..a098cb9 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/DummyOracle.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/DummyOracle.sol
+@@ -1,9 +1,10 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ contract DummyOracle {
+     int value;
+ 
+-    constructor(int _value) public {
++    constructor(int _value) {
+         set(_value);
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/ETHRegistrarController.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/ETHRegistrarController.sol
+index 6ecd16f..ea33244 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/ETHRegistrarController.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/ETHRegistrarController.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./PriceOracle.sol";
+@@ -40,7 +41,7 @@ contract ETHRegistrarController is Ownable {
+     event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
+     event NewPriceOracle(address indexed oracle);
+ 
+-    constructor(BaseRegistrarImplementation _base, PriceOracle _prices, uint _minCommitmentAge, uint _maxCommitmentAge) public {
++    constructor(BaseRegistrarImplementation _base, PriceOracle _prices, uint _minCommitmentAge, uint _maxCommitmentAge) {
+         require(_maxCommitmentAge > _minCommitmentAge);
+ 
+         base = _base;
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/LinearPremiumPriceOracle.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/LinearPremiumPriceOracle.sol
+index f9a04d2..46ada0b 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/LinearPremiumPriceOracle.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/LinearPremiumPriceOracle.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./SafeMath.sol";
+@@ -13,7 +14,7 @@ contract LinearPremiumPriceOracle is StablePriceOracle {
+ 
+     bytes4 constant private TIME_UNTIL_PREMIUM_ID = bytes4(keccak256("timeUntilPremium(uint,uint"));
+ 
+-    constructor(AggregatorInterface _usdOracle, uint[] memory _rentPrices, uint _initialPremium, uint _premiumDecreaseRate) public
++    constructor(AggregatorInterface _usdOracle, uint[] memory _rentPrices, uint _initialPremium, uint _premiumDecreaseRate)
+         StablePriceOracle(_usdOracle, _rentPrices)
+     {
+         initialPremium = _initialPremium;
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/PriceOracle.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/PriceOracle.sol
+index fb8b79d..08a6b22 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/PriceOracle.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/PriceOracle.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ interface PriceOracle {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/SafeMath.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/SafeMath.sol
+index b9d3888..bce584d 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/SafeMath.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/SafeMath.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StablePriceOracle.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StablePriceOracle.sol
+index 8c653b5..4ac18b0 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StablePriceOracle.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StablePriceOracle.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./PriceOracle.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StringUtils.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StringUtils.sol
+index f75912e..064e11b 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StringUtils.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/StringUtils.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ library StringUtils {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/TestResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/TestResolver.sol
+index b6bc1fb..0548164 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/TestResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/TestResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ /**
+@@ -6,7 +7,7 @@ pragma solidity >=0.8.4;
+ contract TestResolver {
+     mapping (bytes32 => address) addresses;
+ 
+-    constructor() public {
++    constructor() {
+     }
+ 
+     function supportsInterface(bytes4 interfaceID) public pure returns (bool) {
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyDNSSEC.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyDNSSEC.sol
+index 8e01e72..1e1ef9e 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyDNSSEC.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyDNSSEC.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "../../registry/ENSRegistry.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyProxyRegistry.sol b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyProxyRegistry.sol
+index bf05f57..510b3a5 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyProxyRegistry.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/ethregistrar/mocks/DummyProxyRegistry.sol
+@@ -1,9 +1,10 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ contract DummyProxyRegistry {
+     address target;
+ 
+-    constructor(address _target) public {
++    constructor(address _target) {
+         target = _target;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENS.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENS.sol
+index a151bdc..474eb79 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENS.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENS.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ interface ENS {
+@@ -17,16 +18,16 @@ interface ENS {
+     // Logged when an operator is added or removed.
+     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+ 
+-    function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external virtual;
+-    function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external virtual;
+-    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external virtual returns(bytes32);
+-    function setResolver(bytes32 node, address resolver) external virtual;
+-    function setOwner(bytes32 node, address owner) external virtual;
+-    function setTTL(bytes32 node, uint64 ttl) external virtual;
+-    function setApprovalForAll(address operator, bool approved) external virtual;
+-    function owner(bytes32 node) external virtual view returns (address);
+-    function resolver(bytes32 node) external virtual view returns (address);
+-    function ttl(bytes32 node) external virtual view returns (uint64);
+-    function recordExists(bytes32 node) external virtual view returns (bool);
+-    function isApprovedForAll(address owner, address operator) external virtual view returns (bool);
++    function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external;
++    function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external;
++    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external returns(bytes32);
++    function setResolver(bytes32 node, address resolver) external;
++    function setOwner(bytes32 node, address owner) external;
++    function setTTL(bytes32 node, uint64 ttl) external;
++    function setApprovalForAll(address operator, bool approved) external;
++    function owner(bytes32 node) external view returns (address);
++    function resolver(bytes32 node) external view returns (address);
++    function ttl(bytes32 node) external view returns (uint64);
++    function recordExists(bytes32 node) external view returns (bool);
++    function isApprovedForAll(address owner, address operator) external view returns (bool);
+ }
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistry.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistry.sol
+index 975583d..763b224 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistry.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistry.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./ENS.sol";
+@@ -18,84 +19,84 @@ contract ENSRegistry is ENS {
+ 
+     // Permits modifications only by the owner of the specified node.
+     modifier authorised(bytes32 node) {
+-        address owner = records[node].owner;
+-        require(owner == msg.sender || operators[owner][msg.sender]);
++        address _owner = records[node].owner;
++        require(_owner == msg.sender || operators[_owner][msg.sender]);
+         _;
+     }
+ 
+     /**
+      * @dev Constructs a new ENS registrar.
+      */
+-    constructor() public {
++    constructor() {
+         records[0x0].owner = msg.sender;
+     }
+ 
+     /**
+      * @dev Sets the record for a node.
+      * @param node The node to update.
+-     * @param owner The address of the new owner.
+-     * @param resolver The address of the resolver.
+-     * @param ttl The TTL in seconds.
++     * @param _owner The address of the new owner.
++     * @param _resolver The address of the resolver.
++     * @param _ttl The TTL in seconds.
+      */
+-    function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external virtual override {
+-        setOwner(node, owner);
+-        _setResolverAndTTL(node, resolver, ttl);
++    function setRecord(bytes32 node, address _owner, address _resolver, uint64 _ttl) external virtual override {
++        setOwner(node, _owner);
++        _setResolverAndTTL(node, _resolver, _ttl);
+     }
+ 
+     /**
+      * @dev Sets the record for a subnode.
+      * @param node The parent node.
+      * @param label The hash of the label specifying the subnode.
+-     * @param owner The address of the new owner.
+-     * @param resolver The address of the resolver.
+-     * @param ttl The TTL in seconds.
++     * @param _owner The address of the new owner.
++     * @param _resolver The address of the resolver.
++     * @param _ttl The TTL in seconds.
+      */
+-    function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external virtual override {
+-        bytes32 subnode = setSubnodeOwner(node, label, owner);
+-        _setResolverAndTTL(subnode, resolver, ttl);
++    function setSubnodeRecord(bytes32 node, bytes32 label, address _owner, address _resolver, uint64 _ttl) external virtual override {
++        bytes32 subnode = setSubnodeOwner(node, label, _owner);
++        _setResolverAndTTL(subnode, _resolver, _ttl);
+     }
+ 
+     /**
+      * @dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.
+      * @param node The node to transfer ownership of.
+-     * @param owner The address of the new owner.
++     * @param _owner The address of the new owner.
+      */
+-    function setOwner(bytes32 node, address owner) public virtual override authorised(node) {
+-        _setOwner(node, owner);
+-        emit Transfer(node, owner);
++    function setOwner(bytes32 node, address _owner) public virtual override authorised(node) {
++        _setOwner(node, _owner);
++        emit Transfer(node, _owner);
+     }
+ 
+     /**
+      * @dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.
+      * @param node The parent node.
+      * @param label The hash of the label specifying the subnode.
+-     * @param owner The address of the new owner.
++     * @param _owner The address of the new owner.
+      */
+-    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public virtual override authorised(node) returns(bytes32) {
++    function setSubnodeOwner(bytes32 node, bytes32 label, address _owner) public virtual override authorised(node) returns(bytes32) {
+         bytes32 subnode = keccak256(abi.encodePacked(node, label));
+-        _setOwner(subnode, owner);
+-        emit NewOwner(node, label, owner);
++        _setOwner(subnode, _owner);
++        emit NewOwner(node, label, _owner);
+         return subnode;
+     }
+ 
+     /**
+      * @dev Sets the resolver address for the specified node.
+      * @param node The node to update.
+-     * @param resolver The address of the resolver.
++     * @param _resolver The address of the resolver.
+      */
+-    function setResolver(bytes32 node, address resolver) public virtual override authorised(node) {
+-        emit NewResolver(node, resolver);
+-        records[node].resolver = resolver;
++    function setResolver(bytes32 node, address _resolver) public virtual override authorised(node) {
++        emit NewResolver(node, _resolver);
++        records[node].resolver = _resolver;
+     }
+ 
+     /**
+      * @dev Sets the TTL for the specified node.
+      * @param node The node to update.
+-     * @param ttl The TTL in seconds.
++     * @param _ttl The TTL in seconds.
+      */
+-    function setTTL(bytes32 node, uint64 ttl) public virtual override authorised(node) {
+-        emit NewTTL(node, ttl);
+-        records[node].ttl = ttl;
++    function setTTL(bytes32 node, uint64 _ttl) public virtual override authorised(node) {
++        emit NewTTL(node, _ttl);
++        records[node].ttl = _ttl;
+     }
+ 
+     /**
+@@ -152,27 +153,27 @@ contract ENSRegistry is ENS {
+ 
+     /**
+      * @dev Query if an address is an authorized operator for another address.
+-     * @param owner The address that owns the records.
++     * @param _owner The address that owns the records.
+      * @param operator The address that acts on behalf of the owner.
+      * @return True if `operator` is an approved operator for `owner`, false otherwise.
+      */
+-    function isApprovedForAll(address owner, address operator) external virtual override view returns (bool) {
+-        return operators[owner][operator];
++    function isApprovedForAll(address _owner, address operator) external virtual override view returns (bool) {
++        return operators[_owner][operator];
+     }
+ 
+-    function _setOwner(bytes32 node, address owner) internal virtual {
+-        records[node].owner = owner;
++    function _setOwner(bytes32 node, address _owner) internal virtual {
++        records[node].owner = _owner;
+     }
+ 
+-    function _setResolverAndTTL(bytes32 node, address resolver, uint64 ttl) internal {
+-        if(resolver != records[node].resolver) {
+-            records[node].resolver = resolver;
+-            emit NewResolver(node, resolver);
++    function _setResolverAndTTL(bytes32 node, address _resolver, uint64 _ttl) internal {
++        if(_resolver != records[node].resolver) {
++            records[node].resolver = _resolver;
++            emit NewResolver(node, _resolver);
+         }
+ 
+-        if(ttl != records[node].ttl) {
+-            records[node].ttl = ttl;
+-            emit NewTTL(node, ttl);
++        if(_ttl != records[node].ttl) {
++            records[node].ttl = _ttl;
++            emit NewTTL(node, _ttl);
+         }
+     }
+ }
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistryWithFallback.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistryWithFallback.sol
+index 613059c..bc63b25 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistryWithFallback.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/ENSRegistryWithFallback.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./ENS.sol";
+@@ -13,7 +14,7 @@ contract ENSRegistryWithFallback is ENSRegistry {
+     /**
+      * @dev Constructs a new ENS registrar.
+      */
+-    constructor(ENS _old) public ENSRegistry() {
++    constructor(ENS _old) ENSRegistry() {
+         old = _old;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol
+index 0e38fbd..5b31c3a 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/FIFSRegistrar.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./ENS.sol";
+@@ -20,7 +21,7 @@ contract FIFSRegistrar {
+      * @param ensAddr The address of the ENS registry.
+      * @param node The node that this registrar administers.
+      */
+-    constructor(ENS ensAddr, bytes32 node) public {
++    constructor(ENS ensAddr, bytes32 node) {
+         ens = ensAddr;
+         rootNode = node;
+     }
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/ReverseRegistrar.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/ReverseRegistrar.sol
+index 568f2f6..bc0ed48 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/ReverseRegistrar.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/ReverseRegistrar.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./ENS.sol";
+@@ -18,7 +19,7 @@ contract ReverseRegistrar {
+      * @param ensAddr The address of the ENS registry.
+      * @param resolverAddr The address of the default reverse resolver.
+      */
+-    constructor(ENS ensAddr, NameResolver resolverAddr) public {
++    constructor(ENS ensAddr, NameResolver resolverAddr) {
+         ens = ensAddr;
+         defaultResolver = resolverAddr;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/registry/TestRegistrar.sol b/node_modules/@ensdomains/ens-contracts/contracts/registry/TestRegistrar.sol
+index 16fb799..419b2d5 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/registry/TestRegistrar.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/registry/TestRegistrar.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "./ENS.sol";
+@@ -18,7 +19,7 @@ contract TestRegistrar {
+      * @param ensAddr The address of the ENS registry.
+      * @param node The node that this registrar administers.
+      */
+-    constructor(ENS ensAddr, bytes32 node) public {
++    constructor(ENS ensAddr, bytes32 node) {
+         ens = ensAddr;
+         rootNode = node;
+     }
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/DefaultReverseResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/DefaultReverseResolver.sol
+index 4f14f30..afbff99 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/DefaultReverseResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/DefaultReverseResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "../registry/ENS.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/OwnedResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/OwnedResolver.sol
+index 2fb1a08..ee9e044 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/OwnedResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/OwnedResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "@openzeppelin/contracts/access/Ownable.sol";
+ import "./profiles/ABIResolver.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/PublicResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/PublicResolver.sol
+index 81bd55e..883b7b4 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/PublicResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/PublicResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ 
+ import "../registry/ENS.sol";
+@@ -41,14 +42,14 @@ contract PublicResolver is ABIResolver, AddrResolver, ContentHashResolver, DNSRe
+      *
+      * @param node The name to change the authorisation on.
+      * @param target The address that is to be authorised or deauthorised.
+-     * @param isAuthorised True if the address should be authorised, or false if it should be deauthorised.
++     * @param _isAuthorised True if the address should be authorised, or false if it should be deauthorised.
+      */
+-    function setAuthorisation(bytes32 node, address target, bool isAuthorised) external {
+-        authorisations[node][msg.sender][target] = isAuthorised;
+-        emit AuthorisationChanged(node, msg.sender, target, isAuthorised);
++    function setAuthorisation(bytes32 node, address target, bool _isAuthorised) external {
++        authorisations[node][msg.sender][target] = _isAuthorised;
++        emit AuthorisationChanged(node, msg.sender, target, _isAuthorised);
+     }
+ 
+-    function isAuthorised(bytes32 node) internal override view returns(bool) {
++    function isAuthorised(bytes32 node) internal virtual override view returns(bool) {
+         address owner = ens.owner(node);
+         return owner == msg.sender || authorisations[node][owner][msg.sender];
+     }
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/Resolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/Resolver.sol
+index d88a500..96a950a 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/Resolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/Resolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ pragma experimental ABIEncoderV2;
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/ResolverBase.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/ResolverBase.sol
+index cb5faf7..6248eb4 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/ResolverBase.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/ResolverBase.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ abstract contract ResolverBase {
+     bytes4 private constant INTERFACE_META_ID = 0x01ffc9a7;
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ABIResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ABIResolver.sol
+index 5fe9d07..8e102df 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ABIResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ABIResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/AddrResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/AddrResolver.sol
+index 51add59..a0829e9 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/AddrResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/AddrResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ContentHashResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ContentHashResolver.sol
+index 1f682ba..f2601e5 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ContentHashResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/ContentHashResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/DNSResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/DNSResolver.sol
+index 0b1079d..3e7a568 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/DNSResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/DNSResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ import "../../dnssec-oracle/RRUtils.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/InterfaceResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/InterfaceResolver.sol
+index 8e90c32..5d6f3b3 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/InterfaceResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/InterfaceResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ import "./AddrResolver.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/NameResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/NameResolver.sol
+index 97bde73..27336aa 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/NameResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/NameResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+@@ -12,11 +13,11 @@ abstract contract NameResolver is ResolverBase {
+      * Sets the name associated with an ENS node, for reverse records.
+      * May only be called by the owner of that node in the ENS registry.
+      * @param node The node to update.
+-     * @param name The name to set.
++     * @param _name The name to set.
+      */
+-    function setName(bytes32 node, string calldata name) external authorised(node) {
+-        names[node] = name;
+-        emit NameChanged(node, name);
++    function setName(bytes32 node, string calldata _name) external authorised(node) {
++        names[node] = _name;
++        emit NameChanged(node, _name);
+     }
+ 
+     /**
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/PubkeyResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/PubkeyResolver.sol
+index 2578046..38ba188 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/PubkeyResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/PubkeyResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/TextResolver.sol b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/TextResolver.sol
+index d768b42..7bda482 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/TextResolver.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/resolvers/profiles/TextResolver.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity >=0.8.4;
+ import "../ResolverBase.sol";
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/root/Controllable.sol b/node_modules/@ensdomains/ens-contracts/contracts/root/Controllable.sol
+index cfacb63..098df4c 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/root/Controllable.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/root/Controllable.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "./Ownable.sol";
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/root/Ownable.sol b/node_modules/@ensdomains/ens-contracts/contracts/root/Ownable.sol
+index 3b92530..6441815 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/root/Ownable.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/root/Ownable.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ contract Ownable {
+@@ -11,7 +12,7 @@ contract Ownable {
+         _;
+     }
+ 
+-    constructor() public {
++    constructor() {
+         owner = msg.sender;
+     }
+ 
+diff --git a/node_modules/@ensdomains/ens-contracts/contracts/root/Root.sol b/node_modules/@ensdomains/ens-contracts/contracts/root/Root.sol
+index 25bb214..30a0c26 100644
+--- a/node_modules/@ensdomains/ens-contracts/contracts/root/Root.sol
++++ b/node_modules/@ensdomains/ens-contracts/contracts/root/Root.sol
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: MIT"
+ pragma solidity ^0.8.4;
+ 
+ import "../registry/ENS.sol";
+@@ -14,7 +15,7 @@ contract Root is Ownable, Controllable {
+     ENS public ens;
+     mapping(bytes32=>bool) public locked;
+ 
+-    constructor(ENS _ens) public {
++    constructor(ENS _ens) {
+         ens = _ens;
+     }
+ 
