@@ -1,3 +1,10 @@
+# [1.0.0-rc.8](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-11-26)
+
+
+### Bug Fixes
+
+* use namehash for roles ([#23](https://github.com/energywebfoundation/staking-pool/issues/23)) ([9f1b55c](https://github.com/energywebfoundation/staking-pool/commit/9f1b55cc116d834fb6cc33ac89c6129e47ec8253))
+
 # [1.0.0-rc.7](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2021-11-26)
 
 
