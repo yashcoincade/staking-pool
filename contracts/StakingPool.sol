@@ -1,10 +1,13 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
+import "./libs/Roles.sol";
 import "./libs/ABDKMath64x64.sol";
+import "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
 
 contract StakingPool {
     using ABDKMath64x64 for int128;
+    using RolesLibrary for address;
 
     address public owner;
     address public claimManager;
@@ -17,6 +20,8 @@ contract StakingPool {
     uint256 public contributionLimit;
 
     uint256 public totalStaked;
+    bytes32[] private patronRoles;
+    bytes32 private ownerRole;
 
     uint256 private remainingRewards;
     uint256 private futureRewards;
@@ -32,7 +37,7 @@ contract StakingPool {
 
     event StakeAdded(address indexed sender, uint256 amount, uint256 time);
     event StakeWithdrawn(address indexed sender, uint256 amount);
-    event StakingPoolInitialized(uint256 funded);
+    event StakingPoolInitialized(uint256 funded, uint256 timestamp);
     event OwnershipTransferred(
         address indexed previousOwner,
         address indexed newOwner
@@ -41,10 +46,17 @@ contract StakingPool {
     mapping(address => Stake) public stakes;
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "OnlyOwner: Not authorized");
+        // restrict to accounts enrolled as owner at energyweb 
+        require(msg.sender.isOwner(claimManager, ownerRole), "OnlyOwner: Not an owner");
         _;
     }
 
+    modifier onlyPatrons(address _agent) {
+        // checking patron role with claimManager
+        require(_agent.hasRole(claimManager, patronRoles), "StakingPool: Not a patron");
+        _;
+    }
+    
     modifier belowContributionLimit() {
         require(
             stakes[msg.sender].deposit + msg.value <= contributionLimit,
@@ -58,20 +70,20 @@ contract StakingPool {
         _;
     }
 
-    constructor() {
+        
+    constructor(bytes32 _ownerRole, address _claimManager) {
         owner = msg.sender;
-        //check if appropraite role
-        // check if deposit is at least the max rewards
-        // require(calculateReward(_end - _start, _hardCap) <= msg.value);
+        ownerRole = _ownerRole;
+        claimManager = _claimManager;
     }
 
     function init(
-        address _claimManager,
         uint256 _start,
         uint256 _end,
         uint256 _ratio,
         uint256 _hardCap,
-        uint256 _contributionLimit
+        uint256 _contributionLimit,
+        bytes32[] memory _patronRoles
     ) external payable onlyOwner {
         require(
             _start >= block.timestamp,
@@ -81,16 +93,16 @@ contract StakingPool {
         require(_end - _start >= 1 days, "Duration should be at least 1 day");
         require(msg.value > 0, "Staking pool should be funded");
 
-        claimManager = _claimManager;
         start = _start;
         end = _end;
         ratio = _ratio;
         hardCap = _hardCap;
         contributionLimit = _contributionLimit;
+        patronRoles = _patronRoles;
 
         remainingRewards = msg.value;
 
-        emit StakingPoolInitialized(msg.value);
+        emit StakingPoolInitialized(msg.value, block.timestamp);
     }
 
     function changeOwner(address _newOwner) external onlyOwner {
@@ -100,7 +112,7 @@ contract StakingPool {
         emit OwnershipTransferred(oldOwner, _newOwner);
     }
 
-    function stake() public payable initialized belowContributionLimit {
+    function stake() onlyPatrons(msg.sender) public payable initialized belowContributionLimit {
         // check role with claimManager
         require(block.timestamp >= start, "Staking pool not yet started");
         require(block.timestamp <= end, "Staking pool already expired");

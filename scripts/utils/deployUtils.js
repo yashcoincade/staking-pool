@@ -1,47 +1,57 @@
+const emoji = require('node-emoji');
 const { ethers } = require("hardhat");
+const { DateHandler } = require('./dateUtils');
 
 const displayContractInfos = async (_contractName, _contract) => {
     console.log(`\n[ ${_contractName}'s infos ]`);
     console.log(`\tAddress: ${_contract.address}\n`);
 }
 
+const parseRole = (roleName) => ethers.utils.formatBytes32String(roleName); 
+
 const deployContract = async (contractName) => {
 
     const Contract = await ethers.getContractFactory(contractName);
     try {
-        const deployedContract = await Contract.deploy();
+        const ownerRole = parseRole("owner.roles.stakingpool");
+        const VOLTA_CLAIM_MANAGER_ADDRESS = "0xC3dD7ED75779b33F5Cfb709E0aB02b71fbFA3210";
+
+        const deployedContract = await Contract.deploy(ownerRole, VOLTA_CLAIM_MANAGER_ADDRESS);
         displayContractInfos(contractName, deployedContract);
-        console.log(`${contractName} deployed`);
+        console.log(`${emoji.emojify(":large_green_circle:")} ${contractName} deployed`);
 
         return deployedContract;
     } catch (error) {
-        console.log("An error occurred during contract deployment : ", error);
+        console.log(`${emoji.emojify(":red_circle:")} An error occurred during contract deployment ${error}`);
         return undefined;
     }
 }
 
 const intializeContract = async (_deployedContract) => {
-    const { timestamp } = await ethers.provider.getBlock();
-    const start = timestamp + 5;
-    const end = start + 24 * 3600;
+    const dateHandler = new DateHandler();
+    
+    const start = await dateHandler.now() + 42;
+    const end = dateHandler.add(1, "months");
     const ratio = ethers.utils.parseUnits("0.0000225", 18);
-    const hardCap = ethers.utils.parseUnits("50000", "ether");
-    const contributionLimit = ethers.utils.parseUnits("5000", "ether");
-    const claimManagerAddress = ethers.constants.AddressZero;
-
+    const hardCap = ethers.utils.parseUnits("500", "ether");
+    const contributionLimit = ethers.utils.parseUnits("5", "ether");
+    const patronRoles = [
+        parseRole('email.iam.ew'),
+    ]
     try {
-        await _deployedContract.init(
-            claimManagerAddress,
+       const tx = await _deployedContract.init( //require owner to be enrolled in claimManager
             start,
             end,
             ratio,
             hardCap,
             contributionLimit,
-            { value: ethers.utils.parseUnits("4.2", "ether") }
+            patronRoles,
+            { value:  ethers.utils.parseUnits("5", "ether")}
         );
-        console.log("Staking Pool initialized \n");
+        console.log(`${emoji.emojify(":large_green_circle:")} Staking Pool initialized \n`);
+        console.log("TRansaction >> ", tx)
     } catch (error) {
-        console.log("\nAn error occurred during contract initialization :\n\t ==>", error);
+        console.log(`\n${emoji.emojify(":red_circle:")} An error occurred during contract initialization :\n\t ==> ${error}`);
     }
 }
 
