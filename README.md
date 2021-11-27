@@ -2,6 +2,9 @@
 
 This repository contains the implementation of the staking pool with hourly compounding, hardcap, contribution limits and expiry date.
 
+[]()
+![Alt text](EWF_Staking.png?raw=true "Title")
+
 ## Implementation details
 
 ## Lifecycle
