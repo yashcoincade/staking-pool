@@ -1,3 +1,10 @@
+# [1.0.0-rc.12](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-30)
+
+
+### Features
+
+* terminate function ([#30](https://github.com/energywebfoundation/staking-pool/issues/30)) ([17bab91](https://github.com/energywebfoundation/staking-pool/commit/17bab91c139139023289a8f31ab73fbd9fbb0965))
+
 # [1.0.0-rc.11](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-30)
 
 
