@@ -1,3 +1,11 @@
+# [1.0.0-rc.11](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-30)
+
+
+### Bug Fixes
+
+* checking contribution Limit on initialization ([#28](https://github.com/energywebfoundation/staking-pool/issues/28)) ([f9ab9a7](https://github.com/energywebfoundation/staking-pool/commit/f9ab9a75d001fba3eeba0f5a4e2fe8ad2cd97dd5))
+* remove owner tracking ([#29](https://github.com/energywebfoundation/staking-pool/issues/29)) ([29b1ad8](https://github.com/energywebfoundation/staking-pool/commit/29b1ad8d2a18c39a187d507285e5243d0a16c24f))
+
 # [1.0.0-rc.10](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2021-11-29)
 
 
