@@ -116,7 +116,7 @@ describe("Staking Pool", function () {
 
   async function defaultFixture(wallets: Wallet[], provider: MockProvider) {
     const { timestamp } = await provider.getBlock("latest");
-    const start = timestamp + 10;
+    const start = timestamp + 12;
 
     return fixture(hardCap, start, wallets, provider);
   }
@@ -184,6 +184,10 @@ describe("Staking Pool", function () {
   });
 
   describe("Staking", async () => {
+    this.beforeEach(async () => {
+      console.log("...");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    })
     it("should revert if patron doesn't have appropriate role", async function () {
       const { patron1, asPatron1, claimManagerMocked } = await loadFixture(defaultFixture);
       const defaultRoleVersion = 1;
