@@ -17,6 +17,7 @@ describe("Staking Pool", function () {
   const ratio = 0.0000225;
   const ratioInt = utils.parseUnits(ratio.toString(), 18); // ratio as 18 digit number
 
+  const defaultRoleVersion = 1;
   const patronRoleDef = utils.namehash("email.roles.verification.apps.energyweb.iam.ewc");
   const ownerRoleDef = utils.namehash("owner.roles.stakingpool.apps.energyweb.iam.ewc");
 
@@ -32,7 +33,6 @@ describe("Staking Pool", function () {
     provider: MockProvider,
     claimManagerMocked: MockContract,
   ) {
-    const defaultRoleVersion = 0;
     const patronRole = utils.formatBytes32String("patron");
     const { owner, patron1, patron2 } = await loadFixture(defaultFixture);
     await claimManagerMocked.mock.hasRole.withArgs(owner.address, patronRole, defaultRoleVersion).returns(true);
@@ -53,8 +53,6 @@ describe("Staking Pool", function () {
   ) {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
-
-    const defaultRoleVersion = 0;
     const claimManagerMocked = await deployMockContract(patron1, claimManagerABI);
 
     const stakingPool = (await deployContract(owner, StakingPoolContract, [
@@ -116,7 +114,7 @@ describe("Staking Pool", function () {
 
   async function defaultFixture(wallets: Wallet[], provider: MockProvider) {
     const { timestamp } = await provider.getBlock("latest");
-    const start = timestamp + 10;
+    const start = timestamp + 12;
 
     return fixture(hardCap, start, wallets, provider);
   }
@@ -184,10 +182,12 @@ describe("Staking Pool", function () {
   });
 
   describe("Staking", async () => {
+    this.beforeEach(async () => {
+      console.log("...");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    });
     it("should revert if patron doesn't have appropriate role", async function () {
       const { patron1, asPatron1, claimManagerMocked } = await loadFixture(defaultFixture);
-      const defaultRoleVersion = 0;
-
       await claimManagerMocked.mock.hasRole.withArgs(patron1.address, patronRoleDef, defaultRoleVersion).returns(false);
 
       await expect(asPatron1.stake({ value: oneEWT })).to.be.revertedWith("StakingPool: Not a patron");
