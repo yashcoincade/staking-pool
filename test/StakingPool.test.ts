@@ -32,7 +32,7 @@ describe("Staking Pool", function () {
     provider: MockProvider,
     claimManagerMocked: MockContract,
   ) {
-    const defaultRoleVersion = 0;
+    const defaultRoleVersion = 1;
     const patronRole = utils.formatBytes32String("patron");
     const { owner, patron1, patron2 } = await loadFixture(defaultFixture);
     await claimManagerMocked.mock.hasRole.withArgs(owner.address, patronRole, defaultRoleVersion).returns(true);
@@ -54,7 +54,7 @@ describe("Staking Pool", function () {
     const duration = 3600 * 24 * 30;
     const end = start + duration;
 
-    const defaultRoleVersion = 0;
+    const defaultRoleVersion = 1;
     const claimManagerMocked = await deployMockContract(patron1, claimManagerABI);
 
     const stakingPool = (await deployContract(owner, StakingPoolContract, [
@@ -186,7 +186,7 @@ describe("Staking Pool", function () {
   describe("Staking", async () => {
     it("should revert if patron doesn't have appropriate role", async function () {
       const { patron1, asPatron1, claimManagerMocked } = await loadFixture(defaultFixture);
-      const defaultRoleVersion = 0;
+      const defaultRoleVersion = 1;
 
       await claimManagerMocked.mock.hasRole.withArgs(patron1.address, patronRoleDef, defaultRoleVersion).returns(false);
 
