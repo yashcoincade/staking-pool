@@ -1,3 +1,11 @@
+# [1.0.0-rc.13](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-12-02)
+
+
+### Bug Fixes
+
+* fixing time managment ([471c9f4](https://github.com/energywebfoundation/staking-pool/commit/471c9f46c50013a5f76ff5d44ab4d14a5d477f02))
+* updating role version from 0 to 1 ([30018f2](https://github.com/energywebfoundation/staking-pool/commit/30018f29711c4f54138e841980f2b43d30e0dc79))
+
 # [1.0.0-rc.12](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-30)
 
 
