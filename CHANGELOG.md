@@ -1,3 +1,10 @@
+# [1.0.0-rc.14](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-12-05)
+
+
+### Bug Fixes
+
+* terminate tests ([#34](https://github.com/energywebfoundation/staking-pool/issues/34)) ([5629866](https://github.com/energywebfoundation/staking-pool/commit/5629866d397c5e677864ede621a519f1b764e9cb))
+
 # [1.0.0-rc.13](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-12-02)
 
 
