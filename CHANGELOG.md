@@ -1,3 +1,10 @@
+# [1.0.0-rc.15](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-12-09)
+
+
+### Bug Fixes
+
+* remove ability for pool owners to reinit pool ([4ea24bf](https://github.com/energywebfoundation/staking-pool/commit/4ea24bf0ea341c629821109cf2c40c773574ca07))
+
 # [1.0.0-rc.14](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-12-05)
 
 
