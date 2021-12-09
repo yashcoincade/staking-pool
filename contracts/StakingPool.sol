@@ -34,6 +34,7 @@ contract StakingPool {
 		uint256 deposit;
 		uint256 compounded;
 		uint256 time;
+		uint256 lastUpdated;
 		uint256 futureReward;
 	}
 
@@ -238,7 +239,10 @@ contract StakingPool {
 	function updateStake(uint256 deposit, uint256 compounded) private {
 		stakes[msg.sender].deposit = deposit;
 		stakes[msg.sender].compounded = compounded;
-		stakes[msg.sender].time = block.timestamp;
+		if (block.timestamp - stakes[msg.sender].time >= 1 hours){
+			stakes[msg.sender].time = block.timestamp;
+		}
+		stakes[msg.sender].lastUpdated = block.timestamp;
 	}
 
 	function total() public view returns (uint256, uint256) {
