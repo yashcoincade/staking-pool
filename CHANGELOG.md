@@ -1,3 +1,10 @@
+# [1.0.0-rc.16](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-12-09)
+
+
+### Bug Fixes
+
+* update timestamp recording to prevent undervalued reward ([0b3bcf5](https://github.com/energywebfoundation/staking-pool/commit/0b3bcf580b871b931cdf7cb29050f6caebc2eda9))
+
 # [1.0.0-rc.15](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-12-09)
 
 
