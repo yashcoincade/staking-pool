@@ -74,6 +74,11 @@ contract StakingPool {
 		_;
 	}
 
+	modifier preventReset() {
+		require(start == 0, "Staking Pool already initialized");
+		_;
+	}
+
 	constructor(bytes32 _ownerRole, address _claimManager) {
 		ownerRole = _ownerRole;
 		claimManager = _claimManager;
@@ -86,7 +91,7 @@ contract StakingPool {
 		uint256 _hardCap,
 		uint256 _contributionLimit,
 		bytes32[] memory _patronRoles
-	) external payable onlyOwner {
+	) external payable onlyOwner preventReset {
 		require(
 			_start >= block.timestamp,
 			"Start date should be at least current block timestamp"
