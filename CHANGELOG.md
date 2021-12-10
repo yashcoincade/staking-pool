@@ -1,3 +1,54 @@
+# [1.0.0-rc.16](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-12-09)
+
+
+### Bug Fixes
+
+* update timestamp recording to prevent undervalued reward ([0b3bcf5](https://github.com/energywebfoundation/staking-pool/commit/0b3bcf580b871b931cdf7cb29050f6caebc2eda9))
+
+# [1.0.0-rc.15](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-12-09)
+
+
+### Bug Fixes
+
+* remove ability for pool owners to reinit pool ([4ea24bf](https://github.com/energywebfoundation/staking-pool/commit/4ea24bf0ea341c629821109cf2c40c773574ca07))
+
+# [1.0.0-rc.14](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-12-05)
+
+
+### Bug Fixes
+
+* terminate tests ([#34](https://github.com/energywebfoundation/staking-pool/issues/34)) ([5629866](https://github.com/energywebfoundation/staking-pool/commit/5629866d397c5e677864ede621a519f1b764e9cb))
+
+# [1.0.0-rc.13](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-12-02)
+
+
+### Bug Fixes
+
+* fixing time managment ([471c9f4](https://github.com/energywebfoundation/staking-pool/commit/471c9f46c50013a5f76ff5d44ab4d14a5d477f02))
+* updating role version from 0 to 1 ([30018f2](https://github.com/energywebfoundation/staking-pool/commit/30018f29711c4f54138e841980f2b43d30e0dc79))
+
+# [1.0.0-rc.12](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-30)
+
+
+### Features
+
+* terminate function ([#30](https://github.com/energywebfoundation/staking-pool/issues/30)) ([17bab91](https://github.com/energywebfoundation/staking-pool/commit/17bab91c139139023289a8f31ab73fbd9fbb0965))
+
+# [1.0.0-rc.11](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-30)
+
+
+### Bug Fixes
+
+* checking contribution Limit on initialization ([#28](https://github.com/energywebfoundation/staking-pool/issues/28)) ([f9ab9a7](https://github.com/energywebfoundation/staking-pool/commit/f9ab9a75d001fba3eeba0f5a4e2fe8ad2cd97dd5))
+* remove owner tracking ([#29](https://github.com/energywebfoundation/staking-pool/issues/29)) ([29b1ad8](https://github.com/energywebfoundation/staking-pool/commit/29b1ad8d2a18c39a187d507285e5243d0a16c24f))
+
+# [1.0.0-rc.10](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2021-11-29)
+
+
+### Features
+
+* rewards amount check during initialization ([#27](https://github.com/energywebfoundation/staking-pool/issues/27)) ([c29b6d0](https://github.com/energywebfoundation/staking-pool/commit/c29b6d053948322907c48d4ed90f86f70c350512))
+
 # [1.0.0-rc.9](https://github.com/energywebfoundation/staking-pool/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2021-11-26)
 
 

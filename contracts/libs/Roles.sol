@@ -16,7 +16,7 @@ library RolesLibrary {
         }
         TrustedClaimManager claimManager = TrustedClaimManager(_claimManagerAddress); // Contract deployed and maintained by EnergyWeb Fondation
         for (uint i = 0; i < _roles.length; i++) {
-            if (claimManager.hasRole(_userAddress, _roles[i], 0)) {
+            if (claimManager.hasRole(_userAddress, _roles[i], 1)) {
                 return true;
             }
         }
@@ -26,6 +26,6 @@ library RolesLibrary {
     function isOwner(address _user, address _claimManagerAddress, bytes32 _ownerRole) internal view returns (bool){
         TrustedClaimManager claimManager = TrustedClaimManager(_claimManagerAddress); // Contract deployed and maintained by EnergyWeb Fondation
 
-        return (claimManager.hasRole(_user, _ownerRole, 0));
+        return (claimManager.hasRole(_user, _ownerRole, 1));
     }
 }

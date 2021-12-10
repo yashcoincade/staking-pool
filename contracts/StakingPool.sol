@@ -9,7 +9,6 @@ contract StakingPool {
 	using ABDKMath64x64 for int128;
 	using RolesLibrary for address;
 
-	address public owner;
 	address public claimManager;
 
 	uint256 public start;
@@ -20,6 +19,7 @@ contract StakingPool {
 	uint256 public contributionLimit;
 
 	uint256 public totalStaked;
+
 	bytes32[] private patronRoles;
 	bytes32 private ownerRole;
 
@@ -27,6 +27,8 @@ contract StakingPool {
 	uint256 private futureRewards;
 
 	bool public sweeped;
+
+	address private initiator;
 
 	struct Stake {
 		uint256 deposit;
@@ -38,10 +40,6 @@ contract StakingPool {
 	event StakeAdded(address indexed sender, uint256 amount, uint256 time);
 	event StakeWithdrawn(address indexed sender, uint256 amount);
 	event StakingPoolInitialized(uint256 funded, uint256 timestamp);
-	event OwnershipTransferred(
-		address indexed previousOwner,
-		address indexed newOwner
-	);
 
 	mapping(address => Stake) public stakes;
 
@@ -76,8 +74,12 @@ contract StakingPool {
 		_;
 	}
 
+	modifier preventReset() {
+		require(start == 0, "Staking Pool already initialized");
+		_;
+	}
+
 	constructor(bytes32 _ownerRole, address _claimManager) {
-		owner = msg.sender;
 		ownerRole = _ownerRole;
 		claimManager = _claimManager;
 	}
@@ -89,13 +91,14 @@ contract StakingPool {
 		uint256 _hardCap,
 		uint256 _contributionLimit,
 		bytes32[] memory _patronRoles
-	) external payable onlyOwner {
+	) external payable onlyOwner preventReset {
 		require(
 			_start >= block.timestamp,
 			"Start date should be at least current block timestamp"
 		);
 		// check if stake pool time is at least 1 day
 		require(_end - _start >= 1 days, "Duration should be at least 1 day");
+		require(_hardCap >= _contributionLimit, "hardCap exceeded");
 
 		uint256 maxFutureRewards = compound(
 			_hourlyRatio,
@@ -115,14 +118,26 @@ contract StakingPool {
 
 		remainingRewards = msg.value;
 
+		initiator = msg.sender;
+
 		emit StakingPoolInitialized(msg.value, block.timestamp);
 	}
 
-	function changeOwner(address _newOwner) external onlyOwner {
-		require(owner != _newOwner, "changeOwner: already owner");
-		address oldOwner = owner;
-		owner = _newOwner;
-		emit OwnershipTransferred(oldOwner, _newOwner);
+	function terminate() external initialized onlyOwner {
+		require(start >= block.timestamp, "Cannot terminate after start");
+
+		uint256 payout = remainingRewards;
+		address receipient = initiator;
+
+		delete start;
+		delete end;
+		delete hourlyRatio;
+		delete hardCap;
+		delete contributionLimit;
+		delete patronRoles;
+		delete initiator;
+
+		payable(receipient).transfer(payout);
 	}
 
 	function stake()
@@ -198,7 +213,7 @@ contract StakingPool {
 
 		sweeped = true;
 
-		payable(msg.sender).transfer(payout);
+		payable(initiator).transfer(payout);
 	}
 
 	function calculateFutureReward() private view returns (uint256) {
@@ -223,7 +238,9 @@ contract StakingPool {
 	function updateStake(uint256 deposit, uint256 compounded) private {
 		stakes[msg.sender].deposit = deposit;
 		stakes[msg.sender].compounded = compounded;
-		stakes[msg.sender].time = block.timestamp;
+		if (block.timestamp - stakes[msg.sender].time >= 1 hours){
+			stakes[msg.sender].time = block.timestamp;
+		}
 	}
 
 	function total() public view returns (uint256, uint256) {
