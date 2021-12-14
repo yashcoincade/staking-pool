@@ -3,7 +3,7 @@
 // File @ensdomains/ens-contracts/contracts/registry/ENS.sol@v0.0.4
 
 // SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 interface ENS {
 
@@ -39,8 +39,7 @@ interface ENS {
 
 // File @ensdomains/ens-contracts/contracts/registry/ENSRegistry.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 /**
  * The ENS registry contract.
@@ -220,9 +219,7 @@ contract ENSRegistry is ENS {
 
 // File @openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Elliptic Curve Digital Signature Algorithm (ECDSA) operations.
@@ -443,9 +440,7 @@ library ECDSAUpgradeable {
 
 // File @openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed
@@ -492,11 +487,6 @@ abstract contract Initializable {
 
 
 // File @openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol@v4.3.2
-
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
-
 
 /**
  * @dev https://eips.ethereum.org/EIPS/eip-712[EIP 712] is a standard for hashing and signing of typed structured data.
@@ -607,9 +597,7 @@ abstract contract EIP712Upgradeable is Initializable {
 
 // File @openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -635,9 +623,7 @@ interface IERC165Upgradeable {
 
 // File @openzeppelin/contracts-upgradeable/utils/introspection/ERC165CheckerUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Library used to query support of an interface declared via {IERC165}.
@@ -758,9 +744,7 @@ interface IOwned {
 
 // File @openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -792,9 +776,7 @@ abstract contract ContextUpgradeable is Initializable {
 
 // File @openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 
 /**
@@ -872,9 +854,7 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
 
 // File @openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev This is the interface that {BeaconProxy} expects of its beacon.
@@ -891,9 +871,7 @@ interface IBeaconUpgradeable {
 
 // File @openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Collection of functions related to the address type
@@ -1084,9 +1062,7 @@ library AddressUpgradeable {
 
 // File @openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * @dev Library for reading and writing primitive types to specific storage slots.
@@ -1171,9 +1147,7 @@ library StorageSlotUpgradeable {
 
 // File @openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.2;
+pragma solidity ^0.8.6;
 
 
 
@@ -1388,9 +1362,7 @@ abstract contract ERC1967UpgradeUpgradeable is Initializable {
 
 // File @openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol@v4.3.2
 
-// SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 
 /**
@@ -1471,8 +1443,7 @@ abstract contract UUPSUpgradeable is Initializable, ERC1967UpgradeUpgradeable {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/ResolverBase.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 abstract contract ResolverBase {
     bytes4 private constant INTERFACE_META_ID = 0x01ffc9a7;
 
@@ -1505,8 +1476,7 @@ abstract contract ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/ABIResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract ABIResolver is ResolverBase {
     bytes4 constant private ABI_INTERFACE_ID = 0x2203ab56;
@@ -1559,8 +1529,7 @@ abstract contract ABIResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/AddrResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract AddrResolver is ResolverBase {
     bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
@@ -1615,8 +1584,7 @@ abstract contract AddrResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/ContentHashResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract ContentHashResolver is ResolverBase {
     bytes4 constant private CONTENT_HASH_INTERFACE_ID = 0xbc1c58d1;
@@ -1653,8 +1621,7 @@ abstract contract ContentHashResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/dnssec-oracle/BytesUtils.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.6;
 
 library BytesUtils {
     /*
@@ -1961,7 +1928,7 @@ library BytesUtils {
 
 // File @ensdomains/buffer/contracts/Buffer.sol@v0.0.13
 
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.6;
 
 /**
 * @dev A library for working with mutable byte buffers in Solidity.
@@ -2270,8 +2237,7 @@ library Buffer {
 
 // File @ensdomains/ens-contracts/contracts/dnssec-oracle/RRUtils.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.6;
 
 
 /**
@@ -2615,8 +2581,7 @@ library RRUtils {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/DNSResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 
 abstract contract DNSResolver is ResolverBase {
@@ -2793,8 +2758,7 @@ abstract contract DNSResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/InterfaceResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 
 abstract contract InterfaceResolver is ResolverBase, AddrResolver {
@@ -2861,8 +2825,7 @@ abstract contract InterfaceResolver is ResolverBase, AddrResolver {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/NameResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract NameResolver is ResolverBase {
     bytes4 constant private NAME_INTERFACE_ID = 0x691f3431;
@@ -2900,8 +2863,7 @@ abstract contract NameResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/PubkeyResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract PubkeyResolver is ResolverBase {
     bytes4 constant private PUBKEY_INTERFACE_ID = 0xc8690233;
@@ -2945,8 +2907,7 @@ abstract contract PubkeyResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/profiles/TextResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 abstract contract TextResolver is ResolverBase {
     bytes4 constant private TEXT_INTERFACE_ID = 0x59d1d43c;
@@ -2985,8 +2946,7 @@ abstract contract TextResolver is ResolverBase {
 
 // File @ensdomains/ens-contracts/contracts/resolvers/PublicResolver.sol@v0.0.4
 
-// SPDX-License-Identifier: MIT"
-pragma solidity >=0.8.4;
+pragma solidity ^0.8.6;
 
 
 
@@ -3088,7 +3048,7 @@ contract DomainNotifier {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/enrolment-conditions/EnrolmentPrerequisiteRolesResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving roles which an identity must have to be eligible for a role claim
@@ -3155,7 +3115,7 @@ abstract contract EnrolmentPrerequisiteRolesResolver is ResolverBase {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/issuance/IssuersResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving identities (by did or by role) which can issue a role definition
@@ -3233,7 +3193,7 @@ abstract contract IssuersResolver is ResolverBase {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/issuance/IssuerTypeResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving type of issuance expect for a role.
@@ -3289,7 +3249,7 @@ abstract contract IssuerTypeResolver is ResolverBase {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/revocation/RevokersResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving identities (by did or by role) which can revoke a role definition
@@ -3367,7 +3327,7 @@ abstract contract RevokersResolver is ResolverBase {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/revocation/RevokerTypeResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving type of revocation expect for a role.
@@ -3423,7 +3383,7 @@ abstract contract RevokerTypeResolver is ResolverBase {
 
 // File @energyweb/iam-contracts/dist/contracts/roles/profiles/VersionNumberResolver.sol@v3.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Profile for resolving version number of role definition.
@@ -3735,11 +3695,7 @@ contract ClaimManager is Initializable, UUPSUpgradeable, OwnableUpgradeable, EIP
 
 // File contracts/libs/Roles.sol
 
-// SPDX Licence-Identifier: MIT
-pragma solidity 0.8.6;
-
-// import { ClaimManager as TrustedClaimManager } from "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
-
+pragma solidity ^0.8.6;
 
 library RolesLibrary {
 
@@ -3770,12 +3726,11 @@ library RolesLibrary {
 
 // File contracts/libs/ABDKMath64x64.sol
 
-// SPDX-License-Identifier: BSD-4-Clause
 /*
  * ABDK Math 64.64 Smart Contract Library.  Copyright © 2019 by ABDK Consulting.
  * Author: Mikhail Vladimirov <mikhail.vladimirov@gmail.com>
  */
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.6;
 
 /**
  * Smart contract library of mathematical functions operating with signed
@@ -4618,7 +4573,6 @@ library ABDKMath64x64 {
 
 // File contracts/StakingPool.sol
 
-//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
 
@@ -4900,30 +4854,5 @@ contract StakingPool {
 				),
 				principal
 			);
-	}
-}
-
-
-// File contracts/StakingPoolNoKYC.sol
-
-//SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
-
-contract StakingPoolNoKYC is StakingPool {
-	modifier onlyOwner() override {
-		// restrict to the account that was set as initiator
-		require(msg.sender == initiator, "OnlyOwner: Not an owner");
-		_;
-	}
-
-	modifier onlyPatrons(address _agent) override {
-		// no role check, just pass
-		_;
-	}
-
-	constructor(address _initiator) StakingPool(bytes32(0), address(0)) {
-		require(_initiator != address(0));
-
-		initiator = _initiator;
 	}
 }

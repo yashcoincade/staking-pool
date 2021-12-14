@@ -28,7 +28,7 @@ const getSourceCode = () => {
 const verifyParameters = {
     module: "contract",
     action: "verify",
-    addressHash: "0x1eFf4441AcC9Ecd0dC3dDB508dA38066c73C66f8",
+    addressHash: "0x75006AB5f8f41A73a0E512E0E73dde793cd0378B",
     name: "StakingPool",
     compilerVersion: "0.8.6+commit.11564f7e",
     optimization: false,
