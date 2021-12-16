@@ -268,14 +268,14 @@ describe("Staking Pool", function () {
       ).to.be.revertedWith("Staking pool is full");
     });
 
-    it("Should revert if Owner tries to reinitialize already launched Staking Pool", async function() {
+    it("Should revert if Owner tries to reinitialize already launched Staking Pool", async function () {
       const { asOwner, start, end, rewards } = await loadFixture(defaultFixture);
       await expect(
         asOwner.init(start, end, ratioInt, hardCap, contributionLimit, [patronRoleDef], {
-        value: rewards,
-      })
+          value: rewards,
+        }),
       ).to.be.revertedWith("Staking Pool already initialized");
-    })
+    });
 
     it("should revert when stake is greater than contribution limit", async function () {
       const { asPatron1 } = await loadFixture(defaultFixture);
