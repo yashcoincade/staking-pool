@@ -16,12 +16,18 @@ const deployer_privateKey = process.env.DEPLOYER_PRIV_KEY || defaultAccounts[0].
  */
 module.exports = {
   solidity: "0.8.6",
-  defaultNetwork: "hardhat",
+  defaultNetwork: "volta",
   networks: {
     volta: {
       url: "https://volta-rpc.energyweb.org",
       chainId: 73799,
       accounts: [deployer_privateKey],
+    },
+    energyWebchain: {
+      url: "https://rpc.energyweb.org",
+      chainId: 246,
+      accounts: [deployer_privateKey],
+      gasPrice: 1000000000,
     },
   },
   typechain: {

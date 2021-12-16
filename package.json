@@ -24,6 +24,7 @@
     "verify": "npm run flatten && hardhat run scripts/verify.js",
     "deploy:volta:nokyc": "hardhat run scripts/deploy-no-kyc.js --network volta",
     "deploy:volta:patronkyc": "hardhat run scripts/deploy-patron-kyc.js --network volta",
+    "deploy:ewc:patronkyc": "hardhat run scripts/deploy-patron-kyc.js --network energyWebchain",
     "prepare": "git apply --ignore-whitespace patches/@ensdomains+ens-contracts+0.0.4.patch && is-ci || husky install",
     "lint": "npx eslint . --ext .ts --fix",
     "hardhat:coverage": "npx hardhat coverage",

@@ -29,12 +29,15 @@ const getSourceCode = () => {
 const verifyParameters = {
     module: "contract",
     action: "verify",
-    addressHash: "0x76AC102F448fBAb9a7eA9efe4450878C01aABc8D",
-    name: "StakingPoolPatronKYC",
+    addressHash: "0x13847EA5BEE8fcaEEDE2F40b77DFD4c9d8F0792a",
+    name: "testVerif",
     compilerVersion: "0.8.6+commit.11564f7e",
     optimization: false,
     contractSourceCode: getSourceCode(),
-    autodetectConstructorArguments: true,
+    autodetectConstructorArguments: false,
+    constructorArguments: "000000000000000000000000000000000000000000000000000000000000002a",
+    //onChain Constructor args 000000000000000000000000162f8241694fa4a2345cd2504ca631eaf7d3ec40000000000000000000000000561785174df7f564f2591ba52b253c0f663427ab
+    // evmVersion: "istanbul",
 };
 
 (async function verify(){
