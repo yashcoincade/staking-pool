@@ -33,7 +33,6 @@ const getClaimManagerAddress = (hardhatNetwork) => {
 }
 
 const deployContract = async (contractName) => {
-  console.log('DEPLOY network :: ', process.env.HARDHAT_NETWORK)
   const answer = prompt("Deploy? (Y/n) ");
 
   checkAnswer(answer);
