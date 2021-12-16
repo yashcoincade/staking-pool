@@ -9,10 +9,16 @@ const displayContractInfos = async (_contractName, _contract) => {
 };
 
 const deployContract = async (contractName) => {
+  const answer = prompt("Deploy? (Y/n)");
+
+  if (answer === "n") {
+    process.exit(0);
+  }
+
   const Contract = await ethers.getContractFactory(contractName);
 
-  const initiator = Contract.signer.address;
-  const VOLTA_CLAIM_MANAGER_ADDRESS = "0xC3dD7ED75779b33F5Cfb709E0aB02b71fbFA3210";
+  const initiator = "0x7aB78e40666E18fB8bA9998f2A8201257e6890de";
+  const VOLTA_CLAIM_MANAGER_ADDRESS = "0x23b026631A6f265d17CFee8aa6ced1B244f3920C";
 
   try {
     const deployedContract = await Contract.deploy(initiator, VOLTA_CLAIM_MANAGER_ADDRESS);
@@ -27,13 +33,13 @@ const deployContract = async (contractName) => {
 };
 
 const initializeContract = async (_deployedContract) => {
-  const start = Math.floor(new Date().getTime() / 1000) + 15 * 60;
-  const end = start + 48 * 24 * 3600;
+  const start = Math.floor(new Date().getTime() / 1000) + 30 * 60;
+  const end = start + 48 * 3600;
 
-  const ratio = ethers.utils.parseUnits("0.0000225", 18);
-  const hardCap = ethers.utils.parseUnits("50", "ether");
-  const contributionLimit = ethers.utils.parseUnits("5", "ether");
-  const patronRoles = [ethers.utils.namehash("email.roles.verification.apps.energyweb.iam.ewc")];
+  const ratio = ethers.utils.parseUnits("0.004", 18);
+  const hardCap = ethers.utils.parseUnits("10", "ether");
+  const contributionLimit = ethers.utils.parseUnits("0.5", "ether");
+  const patronRoles = [ethers.utils.namehash("email.roles.verification.apps.energyweb.auth.ewc")];
   const rewards = (await _deployedContract.compound(ratio, hardCap, start, end)).sub(hardCap);
 
   console.log(
@@ -82,9 +88,17 @@ module.exports = {
 };
 
 async function main() {
-  const stakingPoolContract = await deployContract("StakingPoolPatronKYC");
-  if (stakingPoolContract) {
+  if (process.env.CONTRACT) {
+    const Contract = await ethers.getContractFactory("StakingPoolPatronKYC");
+    const stakingPoolContract = Contract.attach(process.env.CONTRACT);
+
     await initializeContract(stakingPoolContract);
+  } else {
+    const stakingPoolContract = await deployContract("StakingPoolPatronKYC");
+
+    if (stakingPoolContract) {
+      await initializeContract(stakingPoolContract);
+    }
   }
 }
 
