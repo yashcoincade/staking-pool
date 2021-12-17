@@ -38,7 +38,6 @@ const deployContract = async (contractName) => {
   checkAnswer(answer);
   console.log(`\t${emoji.emojify(":hourglass_flowing_sand:")} Deploying ${contractName} ...`);
   
-
   const Contract = await ethers.getContractFactory(contractName);
 
   const initiator = Contract.signer.address;
