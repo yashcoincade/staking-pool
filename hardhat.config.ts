@@ -23,6 +23,12 @@ module.exports = {
       chainId: 73799,
       accounts: [deployer_privateKey],
     },
+    ewc: {
+      url: "https://rpc.energyweb.org",
+      chainId: 246,
+      accounts: [deployer_privateKey],
+      gasPrice: 1000000000,
+    },
   },
   typechain: {
     outDir: "ethers",

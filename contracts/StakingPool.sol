@@ -3,7 +3,6 @@ pragma solidity ^0.8.6;
 
 import "./libs/Roles.sol";
 import "./libs/ABDKMath64x64.sol";
-import "@energyweb/iam-contracts/dist/contracts/roles/ClaimManager.sol";
 
 contract StakingPool {
 	using ABDKMath64x64 for int128;
